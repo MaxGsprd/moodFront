@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// MATERIAL'S MODULES
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,6 +29,7 @@ import { InvitationsComponent } from './components/invitations/invitations.compo
 import { InvitationsEvenementComponent } from './components/invitations-evenement/invitations-evenement.component';
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,7 +57,13 @@ import { NewEstablishmentComponent } from './layouts/new-establishment/new-estab
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    // MATERIAL'S MODULES
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
