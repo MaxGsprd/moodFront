@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // MATERIAL'S MODULES
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -59,6 +60,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     // MATERIAL'S MODULES
     MatToolbarModule,
     MatIconModule,
