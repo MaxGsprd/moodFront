@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Establishment } from '../models/establishment';
 
 @Injectable({
@@ -8,9 +9,16 @@ import { Establishment } from '../models/establishment';
 })
 export class EstablishmentService {
   
-  private apiServerUrl = "http://localhost:8080/api";
+  private apiServerUrl = environment.apiBaseUrl;
+  private httpOptions : any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+  }
 
   public getAllEstablishments(): Observable<Establishment[]> {
     return this.http.get<Establishment[]>(`${this.apiServerUrl}/establishments`);
