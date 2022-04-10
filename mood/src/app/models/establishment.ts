@@ -7,4 +7,7 @@ export interface Establishment {
     note: number;
     comments: Array<Comment>;
     // category: Category;
+
+    //Temporary
+    imageTemp: string;
 }
