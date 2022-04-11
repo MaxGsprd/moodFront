@@ -10,7 +10,7 @@ import { Establishment } from '../models/establishment';
 export class EstablishmentService {
   
   private apiServerUrl = environment.apiBaseUrl;
-  private httpOptions : any;
+  private httpOptions: any;
 
   constructor(private http: HttpClient) {
     this.httpOptions = {
