@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Establishment } from '../models/establishment';
+import { EstablishmentIn } from '../models/in/establishment-in';
+import { EstablishmentOut } from '../models/out/establishment-out';
 
 @Injectable({
   providedIn: 'root'
@@ -20,33 +21,33 @@ export class EstablishmentService {
     }
   }
 
-  public getAllEstablishments(): Observable<Establishment[]> {
-    return this.http.get<Establishment[]>(`${this.apiServerUrl}/establishments`);
+  public getAllEstablishments(): Observable<EstablishmentIn[]> {
+    return this.http.get<EstablishmentIn[]>(`${this.apiServerUrl}/establishments`);
   }
 
-  public getEstablishment(establishmentId: number): Observable<Establishment> {
-    return this.http.get<Establishment>(`${this.apiServerUrl}/establishments/${establishmentId}`);
+  public getEstablishment(establishmentId: number): Observable<EstablishmentIn> {
+    return this.http.get<EstablishmentIn>(`${this.apiServerUrl}/establishments/${establishmentId}`);
   }
 
-  public getEstablishmentsByName(establishmentName: string): Observable<Establishment[]> {
-    return this.http.get<Establishment[]>(`${this.apiServerUrl}/establishments/${establishmentName}`);
+  public getEstablishmentsByName(establishmentName: string): Observable<EstablishmentIn[]> {
+    return this.http.get<EstablishmentIn[]>(`${this.apiServerUrl}/establishments/${establishmentName}`);
   }
 
-  public getEstablishmentsByCategory(categoryId: number): Observable<Establishment[]> {
-    return this.http.get<Establishment[]>(`${this.apiServerUrl}/establishments/category${categoryId}`);
+  public getEstablishmentsByCategory(categoryId: number): Observable<EstablishmentIn[]> {
+    return this.http.get<EstablishmentIn[]>(`${this.apiServerUrl}/establishments/category${categoryId}`);
   }
 
-  public getEstablishmentsByStatus(status: number): Observable<Establishment[]> {
-    return this.http.get<Establishment[]>(`${this.apiServerUrl}/establishmentsByStatus/${status}`);
+  public getEstablishmentsByStatus(status: number): Observable<EstablishmentIn[]> {
+    return this.http.get<EstablishmentIn[]>(`${this.apiServerUrl}/establishmentsByStatus/${status}`);
   }
 
-  // public addEstablishment(establishment: any): Observable<any> {
-  //   return this.http.post<any>(`${this.apiServerUrl}/newEstablishment`, establishment);
-  // }
+  public addEstablishment(establishment: EstablishmentOut): Observable<EstablishmentOut> {
+    return this.http.post<EstablishmentOut>(`${this.apiServerUrl}/newEstablishment`, establishment);
+  }
 
-  // public updateEstablishment(establishment: any): Observable<any> {
-  //   return this.http.put<any>(`${this.apiServerUrl}/establishment/${establishment}`, establishment);
-  // }
+  public updateEstablishment(establishment: EstablishmentOut): Observable<EstablishmentOut> {
+    return this.http.put<EstablishmentOut>(`${this.apiServerUrl}/establishment/${establishment}`, establishment);
+  }
 
   public deleteEstablishment(establishmentId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/establishment/${establishmentId}`);
