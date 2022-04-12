@@ -31,7 +31,6 @@ import { InvitationsEvenementComponent } from './components/invitations-evenemen
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -67,8 +66,6 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    //Flex-layout
-    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
