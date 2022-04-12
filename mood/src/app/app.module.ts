@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { InvitationsEvenementComponent } from './components/invitations-evenemen
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -66,6 +67,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    //Flex-layout
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

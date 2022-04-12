@@ -21,8 +21,8 @@ export class HomepageComponent implements OnInit {
         this.establishments = response;
         console.log(this.establishments);
       },
-      error: (error) => console.log('ERROR ESTA ' + error),
-      complete: () => console.log('All establishments query complete')
+      error: (error) => console.log('ERROR on getAllEstablishments : ' + error),
+      complete: () => console.log('complete : getAllEstablishments')
     })
   }
 
