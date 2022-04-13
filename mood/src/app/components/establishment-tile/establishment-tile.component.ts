@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./establishment-tile.component.css']
 })
 export class EstablishmentTileComponent implements OnInit {
-
-  headline!: string;
-  body!: string;
+  title!: string;
+  shortDescription!: string;
   note!: number;
   commentCount!: number;
   // images!: Image[];
@@ -16,6 +15,10 @@ export class EstablishmentTileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.title = "Hello I'm a test headline !";
+    this.shortDescription = "Hello again, I'm a test description !";
+    this.note = 5;
+    this.commentCount = 0;
   }
 
 }

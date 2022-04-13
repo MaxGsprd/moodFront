@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -68,6 +69,7 @@ import { EstablishmentTileComponent } from './components/establishment-tile/esta
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
