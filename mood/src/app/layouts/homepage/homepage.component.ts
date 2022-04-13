@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { EstablishmentIn } from 'src/app/models/in/establishment-in';
+import { establishmentDetails } from 'src/app/models/in/establishmentDetails';
 import { EstablishmentService } from 'src/app/services/establishment.service';
 
 @Component({
@@ -10,14 +10,14 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 })
 export class HomepageComponent implements OnInit {
 
-  public establishments: EstablishmentIn[] = [];
+  public establishments: establishmentDetails[] = [];
 
   constructor(private establishmentService: EstablishmentService) { }
 
   ngOnInit(): void {
 
     this.establishmentService.getAllEstablishments().subscribe({
-      next: (response: EstablishmentIn[]) =>  {
+      next: (response: establishmentDetails[]) =>  {
         this.establishments = response;
         console.log(this.establishments);
       },

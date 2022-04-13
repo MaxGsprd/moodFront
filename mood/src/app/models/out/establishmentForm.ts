@@ -1,4 +1,4 @@
-export interface EstablishmentOut {
+export interface establishmentForm {
     name: string;
     description: string;
     addressNumber: string;

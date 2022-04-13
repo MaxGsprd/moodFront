@@ -1,5 +1,5 @@
 
-export interface EstablishmentIn {
+export interface establishmentDetails {
     name: string;
     description: string;
     // address: Address;
