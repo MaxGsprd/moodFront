@@ -32,7 +32,7 @@ import { InvitationsEvenementComponent } from './components/invitations-evenemen
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EstablishmentTileComponent } from './components/establishment-tile/establishment-tile.component';
+import { EstablishmentCardComponent } from './components/establishment-card/establishment-card.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { EstablishmentTileComponent } from './components/establishment-tile/esta
     InvitationsEvenementComponent,
     DialogUpdateCommentComponent,
     NewEstablishmentComponent,
-    EstablishmentTileComponent
+    EstablishmentCardComponent
   ],
   imports: [
     BrowserModule,
