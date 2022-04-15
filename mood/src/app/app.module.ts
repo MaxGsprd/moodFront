@@ -6,6 +6,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +33,10 @@ import { InvitationsEvenementComponent } from './components/invitations-evenemen
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DialogLoginComponent } from './components/dialog-login/dialog-login.component';
+import { Globals } from './global';
 
 @NgModule({
   declarations: [
@@ -53,19 +60,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InvitationsComponent,
     InvitationsEvenementComponent,
     DialogUpdateCommentComponent,
-    NewEstablishmentComponent
+    NewEstablishmentComponent,
+    DialogLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     // MATERIAL'S MODULES
     MatToolbarModule,
+    MatDialogModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    Globals
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

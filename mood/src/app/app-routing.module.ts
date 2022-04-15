@@ -22,7 +22,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'sigin',
+    path: 'signin',
     component: InscriptionComponent
   },
   {

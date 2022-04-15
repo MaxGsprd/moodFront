@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>CONNEXION</h2>
+
+<form id="loginForm" [formGroup]="loginForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput class="form-control" type="text" name="email" formControlName="email" required>
+    <div class="red" *ngIf="email">
+      {{ email }}
+  </div>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput class="form-control" name="password" formControlName="password" required [type]="hide ? 'password' : 'text'">
+    <div class="red" *ngIf="password">
+        {{ password }}
+    </div>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button id="forgotPassword" mat-button color="accent">Mot de passe oublié ?</button>
+  <button id="loginButton" mat-raised-button color="accent" (click)="login()">Se connecter</button>
+</form>
+
+<div id="signin">
+  <p id="notAMember">Pas encore membre ?</p>
+  <p><a routerLink="/signin" mat-dialog-close>Inscrivez-vous</a>, pour profiter de toutes les fonctionnalités !</p>
+</div>
+

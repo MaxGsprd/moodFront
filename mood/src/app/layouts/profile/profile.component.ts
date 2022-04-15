@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from 'src/app/global';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _global : Globals
+  ) { 
+    console.log(this._global.user)
+  }
 
   ngOnInit(): void {
   }

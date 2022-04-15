@@ -1,0 +1,52 @@
+#loginForm {
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#loginForm mat-form-field {
+    width: 100%;
+}
+
+#loginButton {
+    width: 50%;
+    margin: 5% auto;
+}
+
+#signin {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#signin :last-child {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#signin :last-child a {
+    text-decoration: none;
+    color: #3C5099;
+}
+
+#notAMember {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bolder;
+    color: #3C5099;
+}
+
+#notAMember, #notAMember::before, #notAMember::after {
+    display:inline-block;
+    vertical-align: middle;
+  }
+  #notAMember::before, #notAMember::after {
+    height:4px;
+    width:20px;
+    background: #3C5099;
+    content:"";
+    margin: 0 2%;
+  }
