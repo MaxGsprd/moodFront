@@ -4,18 +4,52 @@
 
 .container {
     margin: 0 5%;
-    background-color: tomato;
     padding: 3%;
+    /* background-color: tomato; */
 }
 
 .jumbotron h1 {
     font-size: 4em;
+    /* background-color: blueviolet; */
 }
 
- mat-grid-tile {
-    background-color: aquamarine;
+mat-grid-tile {
     padding: 0;
     margin: 0;
+}
+
+.tile {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.filtersBar {
+    background-color: aquamarine;
+    margin: 1.5em 0;
+}
+
+mat-button-toggle-group {
+    border: none;
+    justify-content: space-between;
+    display: flex;
+    min-width: 150px;
+    max-width: 10%;
+    background-color: blueviolet;
+}
+
+mat-button-toggle {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    border: none !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/*checked mood toggle btn selector*/
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard  {
+    color: #333;
+    background-color: #CCC
 }
 
 

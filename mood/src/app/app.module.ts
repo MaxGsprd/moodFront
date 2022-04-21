@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -71,7 +72,8 @@ import { EstablishmentCardComponent } from './components/establishment-card/esta
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
