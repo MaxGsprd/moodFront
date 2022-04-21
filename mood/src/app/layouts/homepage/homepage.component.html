@@ -1,13 +1,12 @@
 <div class="container">
-    <h1>Envie de sortir ?</h1>
-    <!-- <app-establishment-card></app-establishment-card> -->
-    <div *ngFor="let establishment of establishments">
-        <div>{{establishment.name + ' ' + establishment.description}}</div>
-    </div>
-    <mat-grid-list cols="2">
-        <mat-grid-tile *ngFor="let establishment of establishments">
-            <!-- {{establishment.name + ' ' + establishment.description}} -->
-            <app-establishment-card></app-establishment-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <section class="jumbotron">
+        <h1>Envie de sortir ?</h1>
+    </section>
+    <section class="mat-grid-container"> 
+        <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">
+            <mat-grid-tile *ngFor="let establishment of establishments">
+                <app-establishment-card></app-establishment-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
 </div>

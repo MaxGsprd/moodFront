@@ -1,9 +1,9 @@
-<mat-card class="establishment-card">
+<!-- <mat-card class="establishment-card">
   <img mat-card-image [src]="imageUrl" [alt]="shortDescription">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ title }}</mat-card-title>
-    <!-- <mat-card-subtitle>{{ shortDescription}}</mat-card-subtitle> -->
+    <mat-card-subtitle>{{ shortDescription}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
@@ -12,4 +12,27 @@
     <p>{{ note}}</p>
     <div>{{commentCount}} avis</div>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
+<div class="grid-container">
+  <div class="grid-item card-img"></div>
+  <div class="grid-item card-content">
+    <div class="card-title">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="card-description">
+      <p><small>
+        {{ shortDescription}}
+      </small></p>
+    </div>
+    <div class="card-footer">
+      <div class="card-note">
+        {{ note}}
+      </div>
+      <div class="card-comment">
+        <p><small>
+          111{{ commentCount}} avis
+        </small></p>
+      </div>
+    </div>
+  </div>
+</div>
