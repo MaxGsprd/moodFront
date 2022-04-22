@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { establishmentDetails } from 'src/app/models/in/establishmentDetails';
 
 @Component({
   selector: 'app-establishment-card',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./establishment-card.component.css']
 })
 export class EstablishmentCardComponent implements OnInit {
-  title!: string;
-  shortDescription!: string;
-  note!: number;
+
+  @Input() establishment!: establishmentDetails;
+
+  // establishtitle!: string = es
+  // shortDescription!: string;
+  // note!: number;
   commentCount!: number;
+  establishmentNote: any;
   // images!: Image[];
   imageUrl!: string;
   headerImageUrl!: string
@@ -17,10 +22,8 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.title = "Hello I'm a test headline !";
-    this.shortDescription = "Hello again, I'm a test description !";
-    this.note = 5;
-    this.commentCount = 0;
+    this.commentCount = this.establishment.comments.length;
+    this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
     this.imageUrl = "https://material.angular.io/assets/img/examples/shiba2.jpg";
     this.headerImageUrl = "https://material.angular.io/assets/img/examples/shiba1.jpg";
   }
