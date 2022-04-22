@@ -1,10 +1,9 @@
-
 export interface establishmentDetails {
     name: string;
     description: string;
     // address: Address;
     // images: Array<Image>;
-    note: number;
+    note: any;
     comments: Array<Comment>;
     category: number;
 
