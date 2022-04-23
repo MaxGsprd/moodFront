@@ -1,11 +1,13 @@
 <div class="card-container"> 
-  <section class="grid-item card-img"></section>
+  <section class="grid-item card-img" [ngStyle]="{'background-image': establishmentImgUrl}"></section>
   <section class="grid-item card-content">
     <div class="card-title">
-      <h3>{{ establishment.name }}</h3>
+      <h2>{{ establishment.name }}</h2>
     </div>
     <div class="card-description">
-      <p><small>{{ establishment.description}}</small></p>
+      <p>
+        <small>{{ shortDescription }}</small>
+      </p>
     </div>
     <div class="card-footer">
       <div class="card-note">
@@ -13,7 +15,7 @@
       </div>
       <div class="card-comment">
         <p><small>
-          {{ commentCount}} avis
+          ({{ commentCount}} avis)
         </small></p>
       </div>
     </div>

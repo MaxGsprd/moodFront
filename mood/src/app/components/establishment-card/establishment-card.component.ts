@@ -10,22 +10,24 @@ export class EstablishmentCardComponent implements OnInit {
 
   @Input() establishment!: establishmentDetails;
 
-  // establishtitle!: string = es
-  // shortDescription!: string;
-  // note!: number;
   commentCount!: number;
   establishmentNote: any;
-  // images!: Image[];
-  imageUrl!: string;
-  headerImageUrl!: string
+  shortDescription!: string;
+
+  //temporary img
+  establishmentImgUrl: string = "url(https://media.timeout.com/images/105860412/1024/576/image.jpg)";
 
   constructor() { }
 
   ngOnInit(): void {
     this.commentCount = this.establishment.comments.length;
     this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
-    this.imageUrl = "https://material.angular.io/assets/img/examples/shiba2.jpg";
-    this.headerImageUrl = "https://material.angular.io/assets/img/examples/shiba1.jpg";
+    
+    if (this.establishment.description.length > 300) {
+      this.shortDescription = `${this.establishment.description.substring(0, 297)} [...]`;
+    } else {
+      this.shortDescription = this.establishment.description;
+    }
   }
 
 }
