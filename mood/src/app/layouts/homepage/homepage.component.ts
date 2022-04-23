@@ -25,8 +25,6 @@ export class HomepageComponent implements OnInit {
   }
 
   onMoodClick() {
-    //@todo bind button on this 
-    console.log(this);
     console.log('coucou');
   }
 

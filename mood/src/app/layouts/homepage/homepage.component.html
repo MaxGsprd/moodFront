@@ -6,10 +6,15 @@
         <div class="filtersBar">
             <div class="moodChoiceButton">
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                    <!-- @todo ngFor des categories, passer ensuite l'id en param de la caté pour appeler getEstablishmentsByCategory -->
-                    <mat-button-toggle (click)="onMoodClick()" value="drinks">{{ 1 }}</mat-button-toggle>
-                    <mat-button-toggle (click)="onMoodClick()" value="party">{{ 2 }}</mat-button-toggle>
-                    <mat-button-toggle (click)="onMoodClick()" value="chill">{{ 3 }}</mat-button-toggle>
+                    <mat-button-toggle (click)="onMoodClick()" value="drinks">
+                        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+                    </mat-button-toggle>
+                    <mat-button-toggle (click)="onMoodClick()" value="party">
+                        <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
+                    </mat-button-toggle>
+                    <mat-button-toggle (click)="onMoodClick()" value="chill">
+                        <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
+                    </mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
         </div>
@@ -17,9 +22,6 @@
             <mat-grid-tile class="tile" *ngFor="let establishment of establishments">
                 <app-establishment-card [establishment]="establishment"></app-establishment-card>
             </mat-grid-tile>
-            <!-- <mat-grid-tile class="tile">
-                <app-establishment-card [establishment]="establishment"></app-establishment-card>
-            </mat-grid-tile> -->
         </mat-grid-list>
     </section>
 </div>
