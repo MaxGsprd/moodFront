@@ -1,8 +1,9 @@
-<div class="container">
-    <section class="jumbotron">
+<div class="container-custom">
+    <section class="jumbotron-custom">
         <h1>Envie de sortir ?</h1>
     </section>
     <section class="mat-grid-container"> 
+        <app-carousel *ngIf="user.connected == true"></app-carousel>
         <div class="filtersBar">
             <div class="moodChoiceButton">
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">

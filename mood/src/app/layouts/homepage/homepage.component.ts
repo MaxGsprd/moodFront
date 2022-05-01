@@ -10,10 +10,17 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 export class HomepageComponent implements OnInit {
 
   public establishments: establishmentDetails[] = [];
+  
+  //temporary
+  user = {connected : true};
 
   constructor(private establishmentService: EstablishmentService) { }
 
   ngOnInit(): void {
+    console.log("user is:");
+    console.log(this.user);
+
+
     this.establishmentService.getAllEstablishments().subscribe({
       next: (response: establishmentDetails[]) =>  {
         this.establishments = response;
@@ -25,7 +32,6 @@ export class HomepageComponent implements OnInit {
   }
 
   onMoodClick() {
-    console.log('coucou');
   }
 
 }

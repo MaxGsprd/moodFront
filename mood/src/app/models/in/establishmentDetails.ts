@@ -8,5 +8,5 @@ export interface establishmentDetails {
     category: number;
 
     //Temporary
-    imageTemp: string;
+    imageTemp?: string;
 }

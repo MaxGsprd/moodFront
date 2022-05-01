@@ -73,7 +73,7 @@ import { EstablishmentCardComponent } from './components/establishment-card/esta
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
