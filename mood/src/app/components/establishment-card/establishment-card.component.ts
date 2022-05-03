@@ -21,7 +21,6 @@ export class EstablishmentCardComponent implements OnInit {
 
   ngOnInit(): void {
       this.commentCount = this.establishment.comments.length;
-      this.commentCount = 1;
       this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
       
       if (this.establishment.description.length > 300) {
