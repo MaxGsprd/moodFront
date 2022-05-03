@@ -20,14 +20,15 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.commentCount = this.establishment.comments.length;
-    this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
-    
-    if (this.establishment.description.length > 300) {
-      this.shortDescription = `${this.establishment.description.substring(0, 220)} [...]`;
-    } else {
-      this.shortDescription = this.establishment.description;
-    }
-  }
+      this.commentCount = this.establishment.comments.length;
+      this.commentCount = 1;
+      this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
+      
+      if (this.establishment.description.length > 300) {
+        this.shortDescription = `${this.establishment.description.substring(0, 220)} [...]`;
+      } else {
+        this.shortDescription = this.establishment.description;
+      }
 
+    }
 }

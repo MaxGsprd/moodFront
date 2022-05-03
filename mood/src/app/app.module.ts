@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -35,6 +36,7 @@ import { DialogUpdateCommentComponent } from './components/dialog-update-comment
 import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstablishmentCardComponent } from './components/establishment-card/establishment-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { EstablishmentCardComponent } from './components/establishment-card/esta
     MatCardModule,
     MatGridListModule,
     MatButtonToggleModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
