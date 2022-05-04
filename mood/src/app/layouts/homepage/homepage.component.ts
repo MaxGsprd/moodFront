@@ -11,6 +11,10 @@ export class HomepageComponent implements OnInit {
 
   public establishments: establishmentDetails[] = [];
   
+  readonly MOOD_BEER   :number = 1;
+  readonly MOOD_PARTY  :number = 2;
+  readonly MOOD_CHILL  :number = 3;
+
   //temporary
   user = {connected : true};
 
@@ -31,7 +35,8 @@ export class HomepageComponent implements OnInit {
     })
   }
 
-  onMoodClick() {
+  onMoodClick(moodCategoryId:number) {
+    console.log(`My mood is ${moodCategoryId}`);
   }
 
 }
