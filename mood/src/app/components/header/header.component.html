@@ -10,6 +10,6 @@
         <button mat-menu-item routerLink="/groups"><mat-icon>group</mat-icon>Groups</button>
         <button mat-menu-item routerLink="/invitations"><mat-icon>mail</mat-icon>Invitations</button>
         <button mat-menu-item><mat-icon>settings</mat-icon>Settings</button>
-        <button mat-menu-item><mat-icon>logout</mat-icon>Log out</button>
+        <button mat-menu-item (click)="openDialogLogin()"><mat-icon>logout</mat-icon>Log out</button>
     </mat-menu>
 </mat-toolbar>
