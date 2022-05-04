@@ -1,12 +1,12 @@
 <form (ngSubmit)="createUser()" [formGroup]="inscriptionForm">
     <h1>Inscription</h1>
-    <div>
+    <mat-form-field>
         <label for="name">Prénom</label>
         <input manInput class="form-control" type="text" name="name" formControlName="firstname" required>
         <div class="red" *ngIf="name">
             {{ name }}
         </div>
-    </div>
+    </mat-form-field>
     <div>
         <label for="surname">Nom</label>
         <input manInput class="form-control" type="text" name="surname" formControlName="name" required>
