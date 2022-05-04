@@ -10,6 +10,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,7 @@ import { NewEstablishmentComponent } from './layouts/new-establishment/new-estab
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstablishmentCardComponent } from './components/establishment-card/establishment-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatGridListModule,
     MatButtonToggleModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    //angular bootstrap
     NgbModule,
   ],
   providers: [],

@@ -17,13 +17,20 @@ export class HomepageComponent implements OnInit {
 
   //temporary
   user = {connected : true};
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'km';
+    }
 
+    return value;
+  }
+  hide = true;
+  
   constructor(private establishmentService: EstablishmentService) { }
 
   ngOnInit(): void {
     console.log("user is:");
     console.log(this.user);
-
 
     this.establishmentService.getAllEstablishments().subscribe({
       next: (response: establishmentDetails[]) =>  {

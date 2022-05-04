@@ -2,7 +2,7 @@
   <ng-template ngbSlide *ngFor="let image of images">
     <div class="img-wrapper">
       <div id="banner-text">
-        <h2>{{image.welcomeTxt}}</h2>
+        <h2>{{image.welcomeTxt | uppercase}}</h2>
       </div>
       <img [src]="image.imageSrc" class="image" alt="Carousel image">
      </div> 

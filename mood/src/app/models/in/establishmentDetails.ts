@@ -1,4 +1,5 @@
 export interface establishmentDetails {
+    id:number;
     name: string;
     description: string;
     // address: Address;

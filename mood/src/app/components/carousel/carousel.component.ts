@@ -26,7 +26,7 @@ export class CarouselComponent implements OnInit {
       imageSrc:
       'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
       imageAlt: 'bar2',
-      welcomeTxt: "Trouvez un bar..."
+      welcomeTxt: "Trouvez votre bar..."
     },
     {
       imageSrc:

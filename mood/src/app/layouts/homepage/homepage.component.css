@@ -26,6 +26,10 @@ mat-grid-tile {
 .filtersBar {
     background-color: aquamarine;
     margin: 1.5em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
 }
 
 .mood-btn-toggle-group {
@@ -51,7 +55,7 @@ mat-grid-tile {
     box-shadow: rgba(17, 16, 16, 0.2) 0px 2px 8px 0px;
 }
 
-mat-button-toggle img {
+.mood-btn img {
     width: 100%;
 }
 
@@ -60,5 +64,17 @@ mat-button-toggle img {
     background-color: #fff;
     opacity: 1;
 }
+
+.distance-filter {
+    background-color: rgb(201, 133, 45);
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+
+}
+
 
 
