@@ -1,27 +1,35 @@
 <div class="container-custom">
-    <section class="jumbotron-custom">
+    <section *ngIf="user.connected" class="jumbotron-custom">
         <h1>Envie de sortir ?</h1>
     </section>
     <section class="mat-grid-container"> 
-        <app-carousel *ngIf="user.connected == true"></app-carousel>
+        <app-carousel [establishments]="establishments" *ngIf="user.connected == true"></app-carousel>
         <div class="filtersBar">
             <div class="moodChoiceButton">
-                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                    <mat-button-toggle (click)="onMoodClick()" value="drinks">
+                <mat-button-toggle-group class="mood-btn-toggle-group" name="moodButtons">
+                    <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_BEER)" [value]="MOOD_BEER">
                         <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
                     </mat-button-toggle>
-                    <mat-button-toggle (click)="onMoodClick()" value="party">
+                    <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_PARTY)" [value]="MOOD_PARTY">
                         <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
                     </mat-button-toggle>
-                    <mat-button-toggle (click)="onMoodClick()" value="chill">
+                    <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_CHILL)" [value]="MOOD_CHILL">
                         <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
                     </mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
+            <div class="establishment-order-button">
+                <!-- <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
+                    <mat-button-toggle value="flour">Les mieux notés</mat-button-toggle>
+                    <mat-button-toggle value="eggs">Eggs</mat-button-toggle>
+                  </mat-button-toggle-group> -->
+            </div>
         </div>
         <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">
             <mat-grid-tile class="tile" *ngFor="let establishment of establishments">
-                <app-establishment-card [establishment]="establishment"></app-establishment-card>
+                <!-- router is gonna need the establishment id to work -->
+                <!-- <a [routerLink]="['/establishments', establishment.name]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a> -->
+               <app-establishment-card [establishment]="establishment"></app-establishment-card>
             </mat-grid-tile>
         </mat-grid-list>
     </section>
