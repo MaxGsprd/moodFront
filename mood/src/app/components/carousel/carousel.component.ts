@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { establishmentDetails } from 'src/app/models/in/establishmentDetails';
 
 @Component({
   selector: 'app-carousel',
@@ -9,8 +10,10 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class CarouselComponent implements OnInit {
 
-  showNavigationArrows = true;
-  showNavigationIndicators = true;
+  @Input() establishments!: Array<establishmentDetails>;
+
+  showNavigationArrows :boolean = true;
+  showNavigationIndicators :boolean= true;
 
   images = [
     {
@@ -40,6 +43,7 @@ export class CarouselComponent implements OnInit {
   
   ngOnInit(): void {
     console.log(this.images);
+    console.log(this.establishments);
   }
 
 }
