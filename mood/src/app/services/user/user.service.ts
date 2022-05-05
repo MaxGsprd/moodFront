@@ -1,16 +1,16 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HOST } from 'config/app.config';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { AuthenticateUser } from '../models/in/AuthenticateUser';
-import { TokenStorageService } from './token-storage.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  api_url = "http://localhost:8080/api/";
+  private url: string = HOST.apiUrl;
   httpOptions : any;
 
   constructor(private http: HttpClient, private token_storage: TokenStorageService) { 
@@ -26,11 +26,11 @@ export class UserService {
   }
 
   setInscription(data: any): Observable<any> {
-    return this.http.put<any>(this.api_url+'user/register', JSON.stringify(data), {headers: {'Content-Type':  'application/json'}});
+    return this.http.put<any>(this.url+'user/register', JSON.stringify(data), {headers: {'Content-Type':  'application/json'}});
   }
 
   getUser(id: Number) : Observable<any> {
-    return this.http.get(this.api_url+'user/'+id, this.httpOptions);
+    return this.http.get(this.url+'user/'+id, this.httpOptions);
   }
 
 }

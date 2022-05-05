@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InvitationsComponent } from './components/invitations/invitations.component';
 import { GroupsComponent } from './layouts/groups/groups.component';
-import { HomepageComponent } from './layouts/homepage/homepage.component';
-import { InscriptionComponent } from './layouts/inscription/inscription.component';
-import { LoginComponent } from './layouts/login/login.component';
-import { ProfileComponent } from './layouts/profile/profile.component';
+import { HomepageComponent } from "./layouts/homepage/Homepage.component";
 
 const routes: Routes = [
   {
@@ -18,20 +15,12 @@ const routes: Routes = [
     component: HomepageComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'signin',
-    component: InscriptionComponent
+    path: 'auth',
+    loadChildren: () => import('./layouts/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'groups',
     component: GroupsComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
   },
   {
     path: 'invitations',
@@ -40,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

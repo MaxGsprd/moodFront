@@ -1,0 +1,24 @@
+<div class="card-container-custom"> 
+    <section class="grid-item card-img-custom" [ngStyle]="{'background-image': establishmentImgUrl}"></section>
+    <section class="grid-item card-content-custom">
+      <div class="card-title-custom">
+        <h2>{{ establishment.name }}</h2>
+      </div>
+      <div class="card-description-custom">
+        <p>
+          <small>{{ shortDescription }}</small>
+        </p>
+      </div>
+      <div class="card-footer-custom">
+        <div class="card-note-custom">
+          {{ establishmentNote }}
+        </div>
+        <div class="card-comment-custom">
+          <p><small>
+            ({{ commentCount}} avis)
+          </small></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  

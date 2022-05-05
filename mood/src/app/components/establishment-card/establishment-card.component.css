@@ -1,0 +1,58 @@
+.card-container-custom {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-custom {
+    background : center / cover no-repeat;
+    position: absolute; 
+    /* background-color: aqua; */
+    height: 300px;
+    width: 100%;
+    top:0;
+    left: 0;
+}
+
+.card-title-custom h2{
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.card-content-custom {
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+    padding: 5px;
+}
+
+.card-description-custom p {
+    /* background-color: beige; */
+    margin-right: 30px;
+    color: #333;
+}
+
+.card-footer-custom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: aquamarine; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #333;
+}
+
+.card-comment-custom {
+    /* background-color: red; */
+    margin-right: 30px;
+}
+
+.card-note-custom {
+    margin-left: 5px;
+}

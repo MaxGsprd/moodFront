@@ -1,1 +1,14 @@
-<p>carousel works!</p>
+<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="img-wrapper">
+        <div id="banner-text">
+          <h2>{{image.welcomeTxt | uppercase}}</h2>
+        </div>
+        <img [src]="image.imageSrc" class="image" alt="Carousel image">
+       </div> 
+      <div class="carousel-caption">
+        <h3>{{image.imageAlt}}</h3>
+        <p>This carousel hides navigation arrows and indicatorsThis carousel hides navigation arrows and indicatorsThis carousel hides navigation arrows and indicators.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>

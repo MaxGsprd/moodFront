@@ -1,0 +1,33 @@
+.img-wrapper {
+    background-color: aquamarine;
+    height: 500px;
+}
+
+img {
+    width: 100%;
+}
+
+.carousel-caption {
+    color: #fff;
+    background-color: rgba(53, 49, 49, 0.26);
+    opacity: 1;
+    padding: 10px;
+    box-shadow: rgba(214, 26, 26, 0.1) 0px 10px 50px;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+#banner-text {
+    top:0;
+    left:20px;
+    margin-top: 20px;
+    color: rgb(230, 225, 225);
+    position: absolute;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 3em;
+} 

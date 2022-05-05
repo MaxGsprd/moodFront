@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -30,5 +31,9 @@ export class TokenStorageService {
 
   public getUser(): any {
     return JSON.parse(sessionStorage.getItem(this.user_key) || '');
+  }
+
+  public getRole(): any {
+    return 'Role';
   }
 }

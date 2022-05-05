@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Globals } from 'src/app/global';
+import { DialogLoginComponent } from "../dialog-login/DialogLoginComponent";
 
-import { DialogLoginComponent } from '../dialog-login/dialog-login.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ import { DialogLoginComponent } from '../dialog-login/dialog-login.component';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private dialog : MatDialog,
+    private dialog: MatDialog,
     private _global: Globals
   ) { }
 
@@ -27,3 +27,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+
