@@ -10,7 +10,7 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 export class HomepageComponent implements OnInit {
 
   public establishments: establishmentDetails[] = [];
-  
+
   readonly MOOD_BEER   :number = 1;
   readonly MOOD_PARTY  :number = 2;
   readonly MOOD_CHILL  :number = 3;
@@ -19,9 +19,8 @@ export class HomepageComponent implements OnInit {
   user = {connected : true};
   formatLabel(value: number) {
     if (value >= 1000) {
-      return Math.round(value / 1000) + 'km';
+      return Math.round(value / 1000);
     }
-
     return value;
   }
   hide = true;
