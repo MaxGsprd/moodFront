@@ -17,18 +17,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from "./layouts/homepage/Homepage.component";
-import { EstablishmentDetailsComponent } from './layouts/establishment-details/establishment-details.component';
-import { GroupsComponent } from './layouts/groups/groups.component';
-import { GroupDetailsComponent } from './layouts/group-details/group-details.component';
-import { AdminComponent } from './layouts/admin/admin.component';
-import { AdminEstablishmentComponent } from './layouts/admin-establishment/admin-establishment.component';
-import { AdminCommentsComponent } from './layouts/admin-comments/admin-comments.component';
 import { EstablishmentCarouselComponent } from './components/establishment-carousel/establishment-carousel.component';
-import { EstablishmentCommentsComponent } from './layouts/establishment-comments/establishment-comments.component';
 import { InvitationsComponent } from './components/invitations/invitations.component';
 import { InvitationsEvenementComponent } from './components/invitations-evenement/invitations-evenement.component';
 import { DialogUpdateCommentComponent } from './components/dialog-update-comment/dialog-update-comment.component';
-import { NewEstablishmentComponent } from './layouts/new-establishment/new-establishment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -48,19 +40,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     HomepageComponent,
-    EstablishmentDetailsComponent,
-    GroupsComponent,
-    GroupDetailsComponent,
-    AdminComponent,
-    AdminEstablishmentComponent,
-    AdminCommentsComponent,
     CarouselComponent,
     EstablishmentCarouselComponent,
-    EstablishmentCommentsComponent,
     InvitationsComponent,
     InvitationsEvenementComponent,
     DialogUpdateCommentComponent,
-    NewEstablishmentComponent,
     EstablishmentCardComponent
   ],
   imports: [
