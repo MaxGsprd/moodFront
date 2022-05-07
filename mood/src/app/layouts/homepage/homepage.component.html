@@ -26,24 +26,29 @@
             </div>
             <div class="distance-filter">
                 <mat-icon> pin_drop</mat-icon>
-                <small >(km)</small>
+                <small class="km">{{sliderValue}}km</small>
                 <mat-slider
+                    [(ngModel)]="sliderValue"
                     class="distance-slider"
                     thumbLabel
                     [displayWith]="formatLabel"
-                    step="1000"
-                    min="0"
-                    max="100000"
+                    step="1"
+                    min="1"
+                    max="100"
                     aria-label="units">
                 </mat-slider>
             </div>
             <div class="inputs">
-                <form class="search-form">
-                    <!-- <mat-icon> location_on</mat-icon> -->
-                    <input class="input-field" type="text">
-                    <!-- <mat-icon>search</mat-icon> -->
-                    <input class="input-field" type="text">
-                </form>
+                <mat-form-field class="search-input" appearance="outline">
+                    <mat-label>Ville</mat-label>
+                    <input matInput placeholder="Ville">
+                    <mat-icon matSuffix>location_city</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="search-input" appearance="outline">
+                    <mat-label>Nom de l'établissement</mat-label>
+                    <input matInput placeholder="Nom de l'établissement">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
             </div>
         </div>
         <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">

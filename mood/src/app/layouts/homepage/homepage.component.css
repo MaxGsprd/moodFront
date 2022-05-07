@@ -113,6 +113,8 @@
  
  .km {
      color: #3C5099;
+     /* background-color: aqua; */
+     width: 30px;
  }
  
  ::ng-deep
@@ -145,14 +147,25 @@
      background-color: #3C5099 !important;
  }
  
- .search-form {
-     width: 380px;
-     display: flex;
-     justify-content: space-between;
-     flex-direction: row;
-     background-color: blue;
+.inputs{
+    width: 470px;
+    display: flex;
+    height: 50px;
+    padding-top: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+    /* background-color: #3C5099; */
+    align-items: center;
+    justify-items: center;
  }
- 
+
+.search-input {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+
  
  
  
