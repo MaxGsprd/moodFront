@@ -18,7 +18,10 @@ export class HomepageComponent implements OnInit {
   readonly MOOD_PARTY: number = 2;
   readonly MOOD_CHILL: number = 3;
 
-  sliderValue:number = 1;
+  sliderValue: number = 1;
+  searchByCityInput: string = "";
+  searchByNameInput: string = "";
+  currentRate = 3.14;
 
   //temporary
   user = { connected: true };
@@ -28,7 +31,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     console.log("user is:");
     console.log(this.user);
-    
     this.establishmentService.getAllEstablishments().subscribe({
       next: (response: EstablishmentDetails[]) => {
         this.establishments = response;
@@ -41,7 +43,18 @@ export class HomepageComponent implements OnInit {
   
   onMoodClick(moodCategoryId: number) {
     console.log(`My mood is ${moodCategoryId}`);
-    console.log(this.sliderValue);
+  }
+
+  searchByBestNote() {
+    console.log(`search by best note`);
+  }
+
+  searchCloset() {
+    console.log(`search closest`);
+  }
+
+  getSliderValue() {
+    console.log(`slider value is : ${this.sliderValue}`);
   }
   
   formatLabel(value: number) {
@@ -49,5 +62,18 @@ export class HomepageComponent implements OnInit {
       return Math.round(value / 1000);
     }
     return value;
+  }
+
+
+  searchByCity() {
+    if (this.searchByCityInput.length > 2) {
+        console.log(`Searching by city : ${this.searchByCityInput}`);
+    }
+  }
+
+  searchByName() {
+    if (this.searchByNameInput.length > 2) {
+        console.log(`Searching by name : ${this.searchByNameInput}`);
+    } 
   }
 }
