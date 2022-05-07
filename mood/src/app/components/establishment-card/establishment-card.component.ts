@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
+import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 
 @Component({
   selector: 'app-establishment-card',
@@ -8,7 +8,7 @@ import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
 })
 export class EstablishmentCardComponent implements OnInit {
 
-  @Input() establishment!: establishmentDetails;
+  @Input() establishment!: EstablishmentDetails;
 
   commentCount!: number;
   establishmentNote: any;
@@ -20,13 +20,21 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-      this.commentCount = this.establishment.comments.length;
+    
+      if (this.establishment.comments) {
+        this.commentCount = this.establishment.comments.length;
+      }
+
       this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
 
-      if (this.establishment.description.length > 300) {
-        this.shortDescription = `${this.establishment.description.substring(0, 220)} [...]`;
-      } else {
-        this.shortDescription = this.establishment.description;
+
+      if (this.establishment.description) {
+        if (this.establishment.description.length > 300) {
+          this.shortDescription = `${this.establishment.description.substring(0, 220)} [...]`;
+        } else {
+          this.shortDescription = this.establishment.description.toString();
+        }
+
       }
 
     }
