@@ -1,3 +1,21 @@
+<div class="mood-note-container">
+    <div class="star">
+        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+    </div>
+    <div class="star">
+        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+    </div>
+    <div class="star">
+        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+    </div>
+    <div class="star">
+        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+    </div>
+    <div class="star">
+        <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+    </div>
+</div>
+
 <div class="container-custom">
     <section *ngIf="user.connected" class="jumbotron-custom">
         <h1>Envie de sortir ?</h1>
@@ -20,14 +38,15 @@
             </div>
             <div class="establishment-order-button">
                 <mat-button-toggle-group class="order-btns" name="orderBtns" aria-label="orderBtns">
-                    <mat-button-toggle class="order-btn" value="orderByBestNote">Les mieux notés</mat-button-toggle>
-                    <mat-button-toggle class="order-btn" value="orderByClosestDistance">Les plus près</mat-button-toggle>
+                    <mat-button-toggle class="order-btn" value="orderByBestNote" (click)="searchByBestNote()">Les mieux notés</mat-button-toggle>
+                    <mat-button-toggle class="order-btn" value="orderByClosestDistance" (click)="searchCloset()">Les plus près</mat-button-toggle>
                   </mat-button-toggle-group>
             </div>
             <div class="distance-filter">
-                <mat-icon> pin_drop</mat-icon>
+                <mat-icon>pin_drop</mat-icon>
                 <small class="km">{{sliderValue}}km</small>
                 <mat-slider
+                    (change)="getSliderValue()"
                     [(ngModel)]="sliderValue"
                     class="distance-slider"
                     thumbLabel
@@ -41,13 +60,13 @@
             <div class="inputs">
                 <mat-form-field class="search-input" appearance="outline">
                     <mat-label>Ville</mat-label>
-                    <input matInput placeholder="Ville">
+                    <input name="searchByCityInput" id="searchByCityInput" (keyup)="searchByCity()" [(ngModel)]="searchByCityInput" matInput placeholder="Ville">
                     <mat-icon matSuffix>location_city</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="search-input" appearance="outline">
                     <mat-label>Nom de l'établissement</mat-label>
-                    <input matInput placeholder="Nom de l'établissement">
-                    <mat-icon matSuffix>search</mat-icon>
+                    <input name="searchByNameInput" id="searchByNameInput" (keyup)="searchByName()" [(ngModel)]="searchByNameInput" matInput placeholder="Nom de l'établissement">
+                    <mat-icon id="nameFieldIcon"  matSuffix>search</mat-icon>
                 </mat-form-field>
             </div>
         </div>
@@ -56,6 +75,5 @@
                 <a [routerLink]="['/establishment', establishment?.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>
             </mat-grid-tile>
         </mat-grid-list>
-        
     </section>
 </div>
