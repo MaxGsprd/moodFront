@@ -48,7 +48,7 @@
         </div>
         <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">
             <mat-grid-tile class="tile" *ngFor="let establishment of establishments">
-                <a [routerLink]="['/establishment', establishment.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>
+                <a [routerLink]="['/establishment', establishment?.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>
             </mat-grid-tile>
         </mat-grid-list>
         

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: NewEstablishmentComponent
   },
   {
-    path: 'detail',
+    path: ':id',
     component: EstablishmentDetailsComponent
   },
   {
