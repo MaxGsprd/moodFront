@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
+import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 import { EstablishmentService } from 'src/app/services/establishment/establishment.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { EstablishmentService } from 'src/app/services/establishment/establishme
 
 export class HomepageComponent implements OnInit {
 
-  public establishments: establishmentDetails[] = [];
+  public establishments: EstablishmentDetails[] = [];
 
   readonly MOOD_BEER: number = 1;
   readonly MOOD_PARTY: number = 2;
@@ -35,7 +36,7 @@ export class HomepageComponent implements OnInit {
     console.log(this.user);
 
     this.establishmentService.getAllEstablishments().subscribe({
-      next: (response: establishmentDetails[]) => {
+      next: (response: EstablishmentDetails[]) => {
         this.establishments = response;
         console.log(this.establishments);
       },

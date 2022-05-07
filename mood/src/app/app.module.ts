@@ -68,7 +68,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSliderModule,
     MatFormFieldModule,
     //angular bootstrap
-    NgbModule,
+    NgbModule
   ],
   providers: [
     Globals,
