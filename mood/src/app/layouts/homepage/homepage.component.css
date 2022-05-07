@@ -6,12 +6,10 @@
      margin: auto;
      padding: 3%;
      max-width: 1500px;
-     /* background-color: tomato; */
  }
  
  .jumbotron-custom h1 {
      font-size: 4em;
-     /* background-color: blueviolet; */
  }
  
  mat-grid-tile {
@@ -24,7 +22,7 @@
  }
  
  .filtersBar {
-     background-color: aquamarine;
+     /* background-color: aquamarine; */
      margin: 1.5em 0;
      display: flex;
      flex-direction: row;
@@ -36,13 +34,12 @@
      border: none;
      justify-content: space-between;
      align-items: center;
-     display: flex;
      padding: 0 5px;
      min-width: 180px;
      max-width: 10%;
      margin: 2px 2px;
      height: 60px;
-     background-color: blueviolet;
+     /* background-color: blueviolet; */
  }
  
  .mood-btn {
@@ -55,6 +52,10 @@
      box-shadow: rgba(17, 16, 16, 0.2) 0px 2px 8px 0px;
  }
  
+ .mood-btn:active {
+     transform: translate(1px, 1px);
+ }
+ 
  .mood-btn img {
      width: 100%;
  }
@@ -65,15 +66,93 @@
      opacity: 1;
  }
  
+ .order-btns {
+     width: 280px;
+     /* background-color: tomato; */
+     display: flex;
+     justify-content: space-between;
+     border: none;
+     align-items: center;
+ }
+ 
+ .order-btn {
+     display: flex;
+     align-items: center;
+     background-color: #3C5099 ;
+     color: #fff;
+     width: 130px;
+     border-radius: 22px;
+     height: 30px;
+     padding: 17px 0;
+ }
+ 
+ .order-btn:active {
+     transform: translate(1px, 01px);
+ }
+
+ .order-btns .mat-button-toggle-checked {
+     color: #3C5099;
+     background-color: #FFF;
+     border: #3C5099 solid 2px;
+ }
+ 
  .distance-filter {
-     background-color: rgb(201, 133, 45);
+     /* background-color: rgb(201, 133, 45); */
+     width: 200px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+ 
+ .distance-filter mat-icon {
+     color: #3C5099;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .km {
+     color: #3C5099;
+ }
+ 
+ ::ng-deep
+ .mat-slider-track-wrapper{
+      background-color: #3C5099 !important;
+ }
+ 
+ ::ng-deep
+ .mat-slider-thumb{
+     background-color: #3C5099 !important;
+     color: #3C5099 !important;
+     opacity: 1;
+ }
+ 
+ ::ng-deep
+ .mat-slider-thumb-label{
+     background-color: #3C5099 !important;
+     /* color: #3C5099 !important;
+     opacity: 1; */
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+ 
+ ::ng-deep
+ .mat-slider-thumb-label-text {
+     color: #fff !important;
+ }
+ 
+ ::ng-deep
+ .mat-slider-ticks-container {
+     background-color: #3C5099 !important;
  }
  
  .search-form {
+     width: 380px;
      display: flex;
+     justify-content: space-between;
      flex-direction: row;
      background-color: blue;
- 
  }
+ 
+ 
  
  
