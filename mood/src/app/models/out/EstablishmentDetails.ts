@@ -9,7 +9,7 @@ export class EstablishmentDetails {
     images : Array<any> | undefined;
     note : any | undefined;
     comments : Array<CommentDetails> | undefined;
-    category : Number | undefined;
+    category : any | undefined;
 
     //Temporary
     imageTemp?: string;
