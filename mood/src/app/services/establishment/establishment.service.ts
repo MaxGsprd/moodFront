@@ -34,7 +34,7 @@ export class EstablishmentService {
   }
 
   public getEstablishmentsByCategory(categoryId: number): Observable<EstablishmentDetails[]> {
-    return this.http.get<EstablishmentDetails[]>(`${this.url}establishments/category${categoryId}`);
+    return this.http.get<EstablishmentDetails[]>(`${this.url}establishments/category/${categoryId}`);
   }
 
   public getEstablishmentsByStatus(status: number): Observable<EstablishmentDetails[]> {
