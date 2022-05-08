@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 import { EstablishmentService } from 'src/app/services/establishment/establishment.service';
-import { FormsModule } from '@angular/forms';
-
 
 @Component({
     selector: 'app-homepage',
@@ -21,7 +19,6 @@ export class HomepageComponent implements OnInit {
   sliderValue: number = 1;
   searchByCityInput: string = "";
   searchByNameInput: string = "";
-  currentRate = 3.14;
 
   //temporary
   user = { connected: true };
@@ -29,8 +26,8 @@ export class HomepageComponent implements OnInit {
   constructor(private establishmentService: EstablishmentService) { }
   
   ngOnInit(): void {
-    console.log("user is:");
     console.log(this.user);
+
     this.establishmentService.getAllEstablishments().subscribe({
       next: (response: EstablishmentDetails[]) => {
         this.establishments = response;
@@ -39,6 +36,7 @@ export class HomepageComponent implements OnInit {
       error: (error) => console.log('ERROR on getAllEstablishments : ' + error),
       complete: () => console.log('complete : getAllEstablishments')
     });
+
   }
   
   onMoodClick(moodCategoryId: number) {
@@ -63,7 +61,6 @@ export class HomepageComponent implements OnInit {
     }
     return value;
   }
-
 
   searchByCity() {
     if (this.searchByCityInput.length > 2) {
