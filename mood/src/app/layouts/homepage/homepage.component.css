@@ -10,6 +10,7 @@
  
 .jumbotron-custom h1 {
     font-size: 4em;
+    color: #3C5099;
  }
  
 mat-grid-tile {
@@ -150,3 +151,24 @@ mat-grid-tile {
     align-items: center;
     justify-items: center;
 }
+
+.clear-filter {
+    text-decoration: none;
+}
+
+.cancel-filters {
+    color: #3C5099;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.9em;
+    margin-top: -15px;
+    font-size: 0.8em;
+}
+
+.cancel-filters:hover {
+    color: red;
+}
+
+
