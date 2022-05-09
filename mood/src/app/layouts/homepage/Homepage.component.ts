@@ -35,16 +35,73 @@ export class HomepageComponent extends BaseComponent implements OnInit {
   
   ngOnInit(): void {
     console.log(this.user);
-    this.getAllestablishment();
+    this.getAllEstablishments();
+    this.getLocation()
+      .then((response) => {
+        this.user.latitude = response.latitude;
+        this.user.longitude = response.longitude;
+      })
+      .catch(error => console.log(`Couldn't retreive user location: ${error}`))
+      .finally(() => console.log(this.user));
+  }
 
-    /*this.establishmentService.getAllEstablishments().subscribe({
-      next: (response: establishmentDetails[]) => {
-        this.establishments = response;
-        console.log(this.establishments);
+  /**
+   * Retreive all establisments from back-end.
+   */
+  getAllEstablishments() {
+    this.establishmentService
+      .getAllEstablishments()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: response => this.establishments = response,
+        error: error => console.log(`ERROR on getAllEstablishments : ${error}`),
+        complete: () => console.log(this.establishments)
+      });
+  }
+
+  /**
+   * Retreive localisation : latitude and longitude of user.
+   */
+  getLocation():Promise<any> {
+    return new Promise((resolve) =>  {
+      navigator.geolocation.getCurrentPosition( (response) => {
+        resolve({ latitude: response.coords.latitude, longitude: response.coords.longitude });
+      });
+    });
+  }
+  
+  /**
+   * Filter establishments on Mood butttons click.
+   * @param  {number} moodCategoryId establishment category Id
+   */
+  onMoodClick(moodCategoryId: number) {
+    this.establishmentService
+    .getEstablishmentsByCategory(moodCategoryId)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe({
+      next: response => this.establishments = response,
+      error: error => console.log(`ERROR on getEstablishmentsByCategory : ${error}`)
+    });
+  }
+
+  /**
+   * Retreive all establishments from back-end and order them by their note.
+   */
+  searchByBestNote() {
+    this.establishmentService
+    .getAllEstablishments()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe({
+      next: (response) => {
+        response.map((establishment) => {
+          if (isNaN(establishment.note.note)) establishment.note.note = 0;
+        });
+        //compare and sort establishment by note
+        response.sort((a, b) => (a.note.note < b.note.note) ? 1 : -1)
+        this.establishments = response
       },
-      error: (error) => console.log('ERROR on getAllEstablishments : ' + error),
-      complete: () => console.log('complete : getAllEstablishments')
-    });*/
+      error: error => console.log(`ERROR on searchByBestNote : ${error}`)
+    });
   }
 
   /**
@@ -84,14 +141,6 @@ export class HomepageComponent extends BaseComponent implements OnInit {
     }
   }
 
-  searchByBestNote() {
-
-  }
-
-  onMoodClick(MOOD_CHILL: any): any {
-
-  }
-
   /**
    * Retreive and filter establishments by name, or name alike.
    */
@@ -108,16 +157,7 @@ export class HomepageComponent extends BaseComponent implements OnInit {
     } 
   }
 
-  getAllestablishment(): any {
-    this.establishmentService.getAllEstablishments()
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(data => {
-        this.establishments = data;
-        console.log(this.establishments);
-      });
-  }
-
   clearFilters() {
-    this.getAllestablishment();
+    this.getAllEstablishments();
   }
 }
