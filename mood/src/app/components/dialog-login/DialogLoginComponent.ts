@@ -36,8 +36,8 @@ export class DialogLoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const authenticateUser = new AuthenticateUser(this.loginForm.value);
 
-      this.service.login(authenticateUser)
-        .subscribe(
+      this.service.login(authenticateUser);
+        /*.subscribe(
           (rest: any) => {
             // Sépare le token de l'id de l'utilisateur
             const result = rest.split(" ");
@@ -46,7 +46,7 @@ export class DialogLoginComponent implements OnInit {
 
             this.dialog.close();
           }
-        );
+        );*/
       this.loginForm.reset();
       //setTimeout(() => console.log(this.tokenService.getUser().user.id), 5000)
       console.log("form is valid");
