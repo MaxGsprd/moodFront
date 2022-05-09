@@ -161,3 +161,4 @@ export class HomepageComponent extends BaseComponent implements OnInit {
     this.getAllEstablishments();
   }
 }
+

@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+ }
+ 
+.container-custom {
+    margin: auto;
+    padding: 3%;
+    max-width: 1500px;
+    display: flex;
+ }
+
+ .right-section {
+     background-color: aquamarine;
+     display: block;
+     height: 100%;
+     width: 100%;
+ }
+
+ .left-section {
+    background-color: thistle;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.establishment-name {
+    font-size: 3em;
+    color:#EAB128;
+}
+
+.informations-section-title, .comments-section-title {
+    font-size: 2em;
+    color:#EAB128;
+}
+
+ 
