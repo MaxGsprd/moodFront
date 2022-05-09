@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { takeUntil } from 'rxjs/operators';
 import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
 import { EstablishmentService } from 'src/app/services/establishment/establishment.service';
+import { BaseComponent } from 'src/app/_shared/core/base.components';
 
 
 @Component({
     selector: 'app-homepage',
     templateUrl: './homepage.component.html',
-    styleUrls: ['./homepage.component.scss']
+    styleUrls: ['./homepage.component.css']
   })
 
-export class HomepageComponent implements OnInit {
+export class HomepageComponent extends BaseComponent implements OnInit  {
 
   public establishments: establishmentDetails[] = [];
 
@@ -28,24 +30,36 @@ export class HomepageComponent implements OnInit {
   }
   hide = true;
 
-  constructor(private establishmentService: EstablishmentService) { }
+  constructor(private establishmentService: EstablishmentService) { 
+    super();
+  }
 
   ngOnInit(): void {
     console.log("user is:");
     console.log(this.user);
+    this.getAllestablishment();
 
-    this.establishmentService.getAllEstablishments().subscribe({
+    /*this.establishmentService.getAllEstablishments().subscribe({
       next: (response: establishmentDetails[]) => {
         this.establishments = response;
         console.log(this.establishments);
       },
       error: (error) => console.log('ERROR on getAllEstablishments : ' + error),
       complete: () => console.log('complete : getAllEstablishments')
-    });
+    });*/
   }
 
   onMoodClick(moodCategoryId: number) {
     console.log(`My mood is ${moodCategoryId}`);
+  }
+
+  getAllestablishment(): any {
+    this.establishmentService.getAllEstablishments()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(data => {
+        this.establishments = data;
+        console.log(this.establishments);
+      });
   }
 
 }
