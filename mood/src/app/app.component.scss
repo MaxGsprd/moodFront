@@ -1,0 +1,15 @@
+@import "/src/theme/mixins.scss";
+@import "/src/theme/variables.scss";
+@import "/src/custom-theme.scss";
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+    min-height: calc(100vh - 100px);
+}
+
+.row {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0;
+  }

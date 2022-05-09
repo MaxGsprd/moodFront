@@ -1,9 +1,12 @@
+@import "/src/theme/mixins.scss";
+@import "/src/theme/variables.scss";
+
 * {
     box-sizing: border-box;
  }
  
  .container-custom {
-     margin: auto;
+     margin: 0 auto;
      padding: 3%;
      max-width: 1500px;
      /* background-color: tomato; */

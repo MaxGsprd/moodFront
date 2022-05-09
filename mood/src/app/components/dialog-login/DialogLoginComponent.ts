@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-dialog-login',
   templateUrl: './dialog-login.component.html',
-  styleUrls: ['./dialog-login.component.css']
+  styleUrls: ['./dialog-login.component.scss']
 })
 export class DialogLoginComponent implements OnInit {
 

@@ -1,16 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
+import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css'],
+  styleUrls: ['./carousel.component.scss'],
   providers: [NgbCarouselConfig]
 })
 export class CarouselComponent implements OnInit {
 
-  @Input() establishments!: Array<establishmentDetails>;
+  @Input() establishments!: Array<EstablishmentDetails>;
 
   showNavigationArrows :boolean = true;
   showNavigationIndicators :boolean= true;
@@ -42,8 +42,7 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.images);
-    console.log(this.establishments);
+
   }
 
 }

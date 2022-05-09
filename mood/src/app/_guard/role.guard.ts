@@ -17,6 +17,12 @@ export class RoleGuard implements CanActivate {
     if (route.data['authorizedRole'].indexOf(this.tokenStorageService.getRole()) === -1) {
       this.tokenStorageService.getRole() === 'ROLE_ADMIN' ? this.router.navigate(['/admin/*']) : this.router.navigate(['/']);
     }
+    if (route.data['authorizedRole'].indexOf(this.tokenStorageService.getRole()) === -1) {
+      this.tokenStorageService.getRole() === 'ROLE_EDITOR' ? this.router.navigate(['/editor/*']) : this.router.navigate(['/']);
+    }
+    if (route.data['authorizedRole'].indexOf(this.tokenStorageService.getRole()) === -1) {
+      this.tokenStorageService.getRole() === 'ROLE_MODERATOR' ? this.router.navigate(['/moderator/*']) : this.router.navigate(['/']);
+    }
     return route.data['authorizedRole'].indexOf(this.tokenStorageService.getRole()) !== -1;
   }
 

@@ -14,19 +14,20 @@ import { EstablishmentRoutingModule } from './establishment.routing.module';
 import { EstablishmentDetailsComponent } from './establishment-details/establishment-details.component';
 import { EstablishmentCommentsComponent } from './establishment-comments/establishment-comments.component';
 import { NewEstablishmentComponent } from './new-establishment/new-establishment.component';
+import { CommonModule } from '@angular/common'
 
 @NgModule({
     declarations: [
       EstablishmentDetailsComponent,
       EstablishmentCommentsComponent,
       NewEstablishmentComponent
-
     ],
-    imports: [  
+    imports: [ 
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         EstablishmentRoutingModule,
+        CommonModule,
         // MATERIAL'S MODULES
         MatToolbarModule,
         MatDialogModule,

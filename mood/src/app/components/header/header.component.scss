@@ -1,9 +1,12 @@
+@import "/src/theme/variables.scss";
+@import "/src/theme/mixins.scss";
+
 .example-spacer {
     flex: 1 1 auto;
 }
 
 mat-toolbar {
-    background: #EAB128;
+    background: $navbar-background-color;
 }
 
 mat-toolbar span, mat-toolbar mat-icon {

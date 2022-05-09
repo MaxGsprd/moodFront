@@ -1,18 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { establishmentDetails } from 'src/app/models/in/establishmentDetail';
+import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 
 @Component({
   selector: 'app-establishment-card',
   templateUrl: './establishment-card.component.html',
-  styleUrls: ['./establishment-card.component.css']
+  styleUrls: ['./establishment-card.component.scss']
 })
 export class EstablishmentCardComponent implements OnInit {
 
-  @Input() establishment!: establishmentDetails;
+  @Input() establishment!: EstablishmentDetails;
 
   commentCount!: number;
   establishmentNote: any;
   shortDescription!: string;
+
+  //notation related variables
+  maxNote: number = 5;
+  noteInnerWidth:number = 0;
+  moodId: string = "";
 
   //temporary img
   establishmentImgUrl: string = "url(https://media.timeout.com/images/105860412/1024/576/image.jpg)";
@@ -20,14 +25,31 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+    if (this.establishment.comments) {
       this.commentCount = this.establishment.comments.length;
-      this.establishmentNote = isNaN(this.establishment.note.note) ? 0 : this.establishment.note.note;
+    }
+    this.getShortDescription();
+    this.getNotes();
+  }
 
+  getNotes() {
+    if (this.establishment.category) {
+      this.moodId = this.establishment.category.id;
+    } else {
+      this.moodId = "1";
+    }
+    const percentage = (this.establishment.note.note / this.maxNote) * 100;
+    this.noteInnerWidth = percentage;
+  }
+
+  getShortDescription() {
+    if (this.establishment.description) {
       if (this.establishment.description.length > 300) {
         this.shortDescription = `${this.establishment.description.substring(0, 220)} [...]`;
       } else {
-        this.shortDescription = this.establishment.description;
+        this.shortDescription = this.establishment.description.toString();
       }
-
     }
+  }
 }

@@ -19,38 +19,49 @@
                 </mat-button-toggle-group>
             </div>
             <div class="establishment-order-button">
-                <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
-                    <mat-button-toggle value="flour">Les mieux notés</mat-button-toggle>
-                    <mat-button-toggle value="eggs">Les plus près</mat-button-toggle>
+                <mat-button-toggle-group class="order-btns" name="orderBtns" aria-label="orderBtns">
+                    <mat-button-toggle class="order-btn" value="orderByBestNote" (click)="searchByBestNote()">Les mieux notés</mat-button-toggle>
+                    <mat-button-toggle class="order-btn" value="orderByClosestDistance" (click)="searchCloset()">Les plus près</mat-button-toggle>
                   </mat-button-toggle-group>
             </div>
             <div class="distance-filter">
-                <mat-icon> pin_drop</mat-icon>
+                <mat-icon>pin_drop</mat-icon>
+                <small class="km">{{sliderValue}}km</small>
                 <mat-slider
+                    (change)="getSliderValue()"
+                    [(ngModel)]="sliderValue"
                     class="distance-slider"
                     thumbLabel
                     [displayWith]="formatLabel"
-                    tickInterval="1000"
-                    step="1000"
-                    min="0"
-                    max="100000"
+                    step="1"
+                    min="1"
+                    max="100"
                     aria-label="units">
                 </mat-slider>
             </div>
             <div class="inputs">
-                <form class="search-form">
-                    <!-- <mat-icon> location_on</mat-icon> -->
-                    <input class="input-field" type="text">
-                    <!-- <mat-icon>search</mat-icon> -->
-                    <input class="input-field" type="text">
-                </form>
+                <mat-form-field class="search-input" appearance="outline">
+                    <mat-label>Ville</mat-label>
+                    <input name="searchByCityInput" id="searchByCityInput" (keyup)="searchByCity()" [(ngModel)]="searchByCityInput" matInput placeholder="Ville">
+                    <mat-icon matSuffix>location_city</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="search-input" appearance="outline">
+                    <mat-label>Nom de l'établissement</mat-label>
+                    <input name="searchByNameInput" id="searchByNameInput" (keyup)="searchByName()" [(ngModel)]="searchByNameInput" matInput placeholder="Nom de l'établissement">
+                    <mat-icon id="nameFieldIcon"  matSuffix>search</mat-icon>
+                </mat-form-field>
             </div>
         </div>
+        <a class="clear-filter" href="#">
+            <div (click)="clearFilters()" class="cancel-filters">
+                <mat-icon>close</mat-icon>
+                <a>effacer les filtres</a>
+            </div>
+        </a>
         <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">
             <mat-grid-tile class="tile" *ngFor="let establishment of establishments">
-                <a [routerLink]="['/establishments', establishment.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>
+                <a [routerLink]="['/establishment', establishment?.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>
             </mat-grid-tile>
         </mat-grid-list>
-
     </section>
 </div>

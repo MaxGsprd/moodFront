@@ -6,7 +6,7 @@ import { UserService } from '../../../services/user/user.service';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent implements OnInit {
 
