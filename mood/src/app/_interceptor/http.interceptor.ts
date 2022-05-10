@@ -14,8 +14,6 @@ const TOKEN_HEADER_KEY = 'Authorization';
 @Injectable()
 export class HttpInterceptors implements HttpInterceptor {
   private token = "secrettoken";
-  private refreshTokenInProgress = false;
-  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(
     private tokenStorageService: TokenStorageService
@@ -24,7 +22,8 @@ export class HttpInterceptors implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!!this.tokenStorageService.getToken()) {
       request = request.clone({
-        setHeaders: { 'Authorization': `Bearer ${this.tokenStorageService.getToken()}` }
+        setHeaders: { 'Authorization': `Bearer ${this.tokenStorageService.getToken()}` },
+        headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
       });
     }
     return next.handle(request);
