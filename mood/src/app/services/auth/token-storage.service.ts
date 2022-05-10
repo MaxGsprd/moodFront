@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,7 @@ import { Injectable } from '@angular/core';
 export class TokenStorageService {
 
   token_key:string = 'auth-token';
-  user_key = 'auth-user';
-
+ 
   constructor() { }
 
   signOut(): void {
@@ -24,16 +24,10 @@ export class TokenStorageService {
     return sessionStorage.getItem(this.token_key) || '';
   }
 
-  public saveUser(user: any): void {
-    window.sessionStorage.removeItem(this.user_key);
-    window.sessionStorage.setItem(this.user_key, JSON.stringify(user));
+  public getUserEmail(): any {
+    let jwt_object: any = jwt_decode(sessionStorage.getItem(this.token_key) || '');
+    return jwt_object.sub;
   }
 
-  public getUser(): any {
-    return JSON.parse(sessionStorage.getItem(this.user_key) || '');
-  }
 
-  public getRole(): any {
-    return 'Role';
-  }
 }
