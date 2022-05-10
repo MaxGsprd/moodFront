@@ -10,59 +10,88 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  img64: any;
+  public readonly MOOD_BEER: number = 1;
+  public readonly MOOD_PARTY: number = 2;
+  public readonly MOOD_CHILL: number = 3;
+
 
   inscriptionForm: FormGroup;
 
   forminscription: any;
 
   name: string | undefined;
-  surname: string | undefined;
+  firstname: string | undefined;
   email: string | undefined;
   password: string | undefined;
+  confirmPassword: string | undefined;
   sex: string | undefined;
+  localisationForm: string | undefined;
   phone: string | undefined;
-  address: string | undefined;
+  addressNumber: string | undefined;
+  addressName: string | undefined;
   postalCode: string | undefined;
-  town: string | undefined;
+  city: string | undefined;
+  mood: string | undefined;
+
+  fileName: string | undefined;
 
   constructor(
     private fb: FormBuilder, 
-    private authService: AuthService) {
+    private authService: AuthService
+    ) {
     this.inscriptionForm = this.fb.group({
-      firstname: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      firstname: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
       sex: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
-      address: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(40)]),
-      isLunchLady: new FormControl(false),
-      postalCode: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]),
-      town: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      phone: new FormControl('', [Validators.required]),
+      localisationForm: new FormGroup({
+        addressNumber: new FormControl(''),
+        addressName: new FormControl('', [Validators.required]),
+        postalCode: new FormControl('', [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+      }),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      wallet: new FormControl(0),
-      image: fb.group({
-        imagePath: new FormControl(''),
-        image64: new FormControl('')
-      })
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
+      mood: new FormControl(''),
       //registrationDate: new Date('YYYY-mm-dd'),
       //status: new FormControl(1)
     });
   }
 
   ngOnInit(): void {
+    
+  }
+
+  onFileSelected(event: any) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+
+        this.fileName = file.name;
+
+        const formData = new FormData();
+
+        formData.append("thumbnail", file);
+
+        console.log(formData);
+
+    }
   }
 
   createUser() {
     if (this.inscriptionForm.valid) {
       this.forminscription = this.inscriptionForm.value;
-      this.authService.register(this.inscriptionForm.value)
+      console.log(this.forminscription);
+      
+     this.authService.register(this.inscriptionForm.value)
         .subscribe(
           (rest: any) => {
             console.log(rest);
           }
         );
-      this.inscriptionForm.reset();
+      //this.inscriptionForm.reset();
       console.log("form is valid");
     }
     else {
@@ -71,9 +100,9 @@ export class InscriptionComponent implements OnInit {
 
         this.name = "Le prénom est obligatoire";
       }
-      if (this.inscriptionForm.controls['surname'].invalid) {
+      if (this.inscriptionForm.controls['firstname'].invalid) {
 
-        this.surname = "Le nom est obligatoir";
+        this.firstname = "Le nom est obligatoire";
       }
       if (this.inscriptionForm.controls['sex'].invalid) {
 
@@ -83,18 +112,6 @@ export class InscriptionComponent implements OnInit {
 
         this.phone = "Votre numéro est obligatoire et doit comporter 10 ou 12 chiffres";
       }
-      if (this.inscriptionForm.controls['address'].invalid) {
-
-        this.address = "Votre adresse est obligatoire";
-      }
-      if (this.inscriptionForm.controls['postalCode'].invalid) {
-
-        this.postalCode = "Votre code postale est obligatoire";
-      }
-      if (this.inscriptionForm.controls['town'].invalid) {
-
-        this.town = "La ville est obligatoire";
-      }
       if (this.inscriptionForm.controls['email'].invalid) {
 
         this.email = "Veuillez rentrer une adresse email valide";
@@ -103,6 +120,12 @@ export class InscriptionComponent implements OnInit {
 
         this.password = "Votre mot de passe est obligatoire, doit comporter au moins 6  caractères";
       }
+      if (this.inscriptionForm.controls['password'] != this.inscriptionForm.controls['confirmPassword']) {
+
+        this.password = "Vos mot de passe sont pas identique";
+      }
     }
   }
+
+
 }

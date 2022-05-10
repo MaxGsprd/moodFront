@@ -2,20 +2,37 @@
   <div class="row sidebar-bg mx-0">
     <div class="container-fluid">
       <div class="row vw-60">
-            <form>
+            <form [formGroup]="inscriptionForm">
                 <h1>Inscription</h1>
-                <div>
-                    <label for="name">Prénom</label>
-                    <input manInput class="form-control" type="text" name="name" formControlName="firstname" required>
-                    <div class="red" *ngIf="name">
-                        {{ name }}
+                <div class="row">
+                    <div class="form-group col-6 px-8">
+                        <label for="name">Prénom</label>
+                        <input manInput class="form-control" type="text" name="firstname" formControlName="firstname" required>
+                        <div class="red" *ngIf="firstname">
+                            {{ name }}
+                        </div>
+                    </div>
+                    <div class="form-group col-6 px-8">
+                        <label for="surname">Nom</label>
+                        <input manInput class="form-control" type="text" name="name" formControlName="name" required>
+                        <div class="red" *ngIf="name">
+                            {{ name }}
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label for="surname">Nom</label>
-                    <input manInput class="form-control" type="text" name="surname" formControlName="name" required>
-                    <div class="red" *ngIf="surname">
-                        {{ surname }}
+                <div class="row">
+                    <div class="moodChoiceButton">
+                        <mat-button-toggle-group class="mood-btn-toggle-group" name="mood" formControlName="mood" >
+                            <mat-button-toggle class="mood-btn" [value]="MOOD_BEER">
+                                <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+                            </mat-button-toggle>
+                            <mat-button-toggle class="mood-btn" [value]="MOOD_PARTY">
+                                <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
+                            </mat-button-toggle>
+                            <mat-button-toggle class="mood-btn" [value]="MOOD_CHILL">
+                                <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
+                            </mat-button-toggle>
+                        </mat-button-toggle-group>
                     </div>
                 </div>
                 <div>
@@ -25,52 +42,92 @@
                         {{ email }}
                     </div>
                 </div>
-                <div>
-                    <label for="password"> Mot de passe</label>
-                    <input manInput class="form-control" type="password" name="password" formControlName="password" name="password" required>
-                    <div class="red" *ngIf="password">
-                        {{ password }}
+                <div class="row">
+                    <div class="form-group col-6 px-8">
+                        <label for="password"> Mot de passe</label>
+                        <input manInput class="form-control" type="password" name="password" formControlName="password" name="password" required>
+                        <div class="red" *ngIf="password">
+                            {{ password }}
+                        </div>
+                    </div>
+                    <div class="form-group col-6 px-8">
+                        <label for="confirmPassword"> Mot de passe confirmer</label>
+                        <input manInput class="form-control" type="confirmPassword" name="confirmPassword" formControlName="confirmPassword" name="confirmPassword" required>
+                        <div class="red" *ngIf="confirmPassword != password">
+                            {{ confirmPassword }}
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label for="sexe">Sexe</label>
-                    <select class="form-control" formControlName="sex" name="sexe">
-                            <option value="">Choisissez</option>
-                            <option value="0">Homme</option>
-                            <option value="1">Femme</option>
-                        </select>
-                    <div class="red" *ngIf="sex">
-                        {{ sex }}
+                <div class="row">
+                    <div class="form-group col-2 px-8">
+                        <label for="sexe">Sexe</label>
+                        <select class="form-control" formControlName="sex" name="sexe">
+                                <option value="">Choisissez</option>
+                                <option value="0">Homme</option>
+                                <option value="1">Femme</option>
+                            </select>
+                        <div class="red" *ngIf="sex">
+                            {{ sex }}
+                        </div>
+                    </div>
+                    <div class="form-group col-10 px-8">
+                        <label for="phone">Numéro de Téléphone </label>
+                        <input manInput class="form-control" type="tel" name="phone" formControlName="phone">
+                        <div class="red" *ngIf="phone">
+                            {{ phone }}
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label for="phone">Numéro de Téléphone </label>
-                    <input manInput class="form-control" type="tel" name="phone" formControlName="phone">
-                    <div class="red" *ngIf="phone">
-                        {{ phone }}
+                <div class="localisation" formGroupName="localisationForm">
+                    <div class="row">
+                        <div class="form-group col-2 px-8">
+                            <label for="addressNumber">Numéro d'addresse </label>
+                            <input manInput class="form-control" type="number" name="addressNumber" formControlName="addressNumber">
+                        </div>
+        
+                        <div class="form-group col-10 px-8">
+                            <label for="addressName"> Adresse</label>
+                            <input manInput class="form-control" type="text" name="addressName" formControlName="addressName">
+                            <div class="red" *ngIf="addressName">
+                                {{ addressName }}
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="form-group col-4 px-8">
+                            <label for="postalCode"> Code postal</label>
+                            <input manInput class="form-control" type="number" name="postalCode" formControlName="postalCode">
+                            <div class="red" *ngIf="postalCode">
+                                {{ postalCode }}
+                            </div>
+                        </div>
+                        <div class="form-group col-8 px-8">
+                            <label for="city"> Ville</label>
+                            <input manInput class="form-control" type="text" name="city" formControlName="city">
+                            <div class="red" *ngIf="city">
+                                {{ city }}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label for="address"> Adresse</label>
-                    <input manInput class="form-control" type="text" name="address" formControlName="address">
-                    <div class="red" *ngIf="address">
-                        {{ address }}
+            
+                <!--<div class="row">
+                    <div class="file-upload">
+                        <input type="file"  class="file-upload" onchange="console.log(event.target.files)">
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                        <div class="file-upload">
+
+                            {{fileName || "No file uploaded yet."}}
+                         
+                             <button mat-mini-fab color="primary" class="upload-btn"
+                               (click)="fileUpload.click()">
+                                 <mat-icon>attach_file</mat-icon>
+                             </button>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="postalCode"> Code postal</label>
-                    <input manInput class="form-control" type="number" name="postalCode" formControlName="postalCode">
-                    <div class="red" *ngIf="postalCode">
-                        {{ postalCode }}
-                    </div>
-                </div>
-                <div>
-                    <label for="town"> Ville</label>
-                    <input manInput class="form-control" type="text" name="town" formControlName="town">
-                    <div class="red" *ngIf="town">
-                        {{ town }}
-                    </div>
-                </div>
+                </div>-->
+
                 <div>
                     <button id="registerButton" mat-raised-button color="accent" (click)="createUser()">Valider</button>
                 </div>
