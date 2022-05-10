@@ -31,6 +31,10 @@ export class AuthService extends BaseComponent {
     super();
    }
 
+   register(data: any): Observable<any> {
+    return this.http.put<any>(this.url+'authentication/register', JSON.stringify(data), {observe: 'response', headers: {'Content-Type':  'application/json'}});
+  }
+
 
   login(data: AuthenticateUser): void{
     if(!!data){

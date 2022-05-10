@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { UserService } from '../../../services/user/user.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -26,7 +26,9 @@ export class InscriptionComponent implements OnInit {
   postalCode: string | undefined;
   town: string | undefined;
 
-  constructor(private fb: FormBuilder, private service: UserService) {
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService) {
     this.inscriptionForm = this.fb.group({
       firstname: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
@@ -54,7 +56,7 @@ export class InscriptionComponent implements OnInit {
   createUser() {
     if (this.inscriptionForm.valid) {
       this.forminscription = this.inscriptionForm.value;
-      this.service.setInscription(this.inscriptionForm.value)
+      this.authService.register(this.inscriptionForm.value)
         .subscribe(
           (rest: any) => {
             console.log(rest);

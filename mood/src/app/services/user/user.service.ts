@@ -18,10 +18,6 @@ export class UserService {
     private token_storage: TokenStorageService
     ) {}
 
-  setInscription(data: any): Observable<any> {
-    return this.http.put<any>(this.url+'user/register', JSON.stringify(data), {headers: {'Content-Type':  'application/json'}});
-  }
-
   getUser(id: Number) : Observable<any> {
     return this.http.get(this.url+'user/'+id);
   }

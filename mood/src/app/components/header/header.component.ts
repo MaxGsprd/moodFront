@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Globals } from 'src/app/global';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
-import { DialogLoginComponent } from "../dialog-login/DialogLoginComponent";
+import { DialogLoginComponent } from "../../layouts/auth/dialog-login/DialogLoginComponent";
 
 
 @Component({

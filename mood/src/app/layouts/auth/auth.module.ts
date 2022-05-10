@@ -15,7 +15,7 @@ import { Globals } from 'src/app/global';
 import { AppComponent } from 'src/app/app.component';
 import { AuthRoutingModule } from './auth.routing.module';
 import { InscriptionComponent } from './inscription/Inscription.component';
-import { DialogLoginComponent } from 'src/app/components/dialog-login/DialogLoginComponent';
+import { DialogLoginComponent } from 'src/app/layouts/auth/dialog-login/DialogLoginComponent';
 
 @NgModule({
     declarations: [
