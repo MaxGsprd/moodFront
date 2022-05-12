@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Globals } from 'src/app/global';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
+//import * as internal from 'stream';
 import { DialogLoginComponent } from "../../layouts/auth/dialog-login/DialogLoginComponent";
 
 
@@ -16,6 +17,9 @@ import { DialogLoginComponent } from "../../layouts/auth/dialog-login/DialogLogi
 export class HeaderComponent implements OnInit {
 
   isLoggedIn$: Observable<boolean> | undefined;
+
+  @Output()
+  userEmail!: String;
 
   constructor(
     private router: Router,

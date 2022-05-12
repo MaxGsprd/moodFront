@@ -73,7 +73,6 @@ export class AuthService extends BaseComponent {
     this.userService.getUserByEmail(this.tokenService.getUserEmail())
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe( data => {
-
       this.setGlobalUser(data.id)
 
     })
@@ -129,4 +128,5 @@ export class AuthService extends BaseComponent {
   getUserNotFoundSubject(): Observable<boolean> {
     return this.userNotFound.asObservable();
   }
+
 }
