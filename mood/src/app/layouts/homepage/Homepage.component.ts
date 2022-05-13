@@ -13,6 +13,7 @@ import { BaseComponent } from 'src/app/_shared/core/base.components';
 export class HomepageComponent extends BaseComponent implements OnInit {
 
   public establishments: EstablishmentDetails[] = [];
+  public closest = [];
   
   public readonly MOOD_BEER: number = 1;
   public readonly MOOD_PARTY: number = 2;
@@ -50,7 +51,7 @@ export class HomepageComponent extends BaseComponent implements OnInit {
    */
   getAllEstablishments() {
     this.establishmentService
-      .getAllEstablishments()
+      .getAllEstablishmentsChecked()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
         next: response => this.establishments = response,
@@ -89,7 +90,7 @@ export class HomepageComponent extends BaseComponent implements OnInit {
    */
   searchByBestNote() {
     this.establishmentService
-    .getAllEstablishments()
+    .getAllEstablishmentsChecked()
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe({
       next: (response) => {
@@ -105,12 +106,32 @@ export class HomepageComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * Retreive, filter establishments and order them by distance.
+   * Retreive, filter establishments within 10km.
    */
   searchCloset() {
-    console.log(`search closest`);
-    console.log(this.user);
+    const latitude: string= this.user.latitude.toString();
+    const longitude: string = this.user.longitude.toString();
+    const distance: string = "10";
+    this.establishments = [];
+
+    this.establishmentService
+    .getEstablishmentWithInDistance(latitude, longitude, distance)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe({
+      next: (response:any) => {
+        response.map((responseItem:any) => {
+          this.establishmentService
+          .getEstablishment(responseItem[0])
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe((filteredEstablishmnent)=> {
+            this.establishments.push(filteredEstablishmnent);
+          });
+        })
+      },
+      error: error => console.log(`ERROR on getEstablishmentWithInDistance : ${error}`)
+    });
   }
+
 
   /**
    * Retreive distance slider fitter value.

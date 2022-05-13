@@ -25,7 +25,7 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
     if (this.establishment.comments) {
       this.commentCount = this.establishment.comments.length;
     }
