@@ -21,7 +21,7 @@ export class EstablishmentService {
     }
   }
 
-  public getAllEstablishments(): Observable<EstablishmentDetails[]> {
+  public getAllEstablishmentsChecked(): Observable<EstablishmentDetails[]> {
     return this.http.get<EstablishmentDetails[]>(`${this.url}establishments`);
   }
 
@@ -39,6 +39,10 @@ export class EstablishmentService {
 
   public getEstablishmentsByStatus(status: number): Observable<EstablishmentDetails[]> {
     return this.http.get<EstablishmentDetails[]>(`${this.url}establishmentsByStatus/${status}`);
+  }
+
+  public getEstablishmentWithInDistance(latitude: string, longitude:string, distance: string): Observable<EstablishmentDetails[]> {
+    return this.http.get<EstablishmentDetails[]>(`${this.url}establishment/withindistancebygeocode?latitude=${latitude}&longitude=${longitude}&distance=${distance}`)
   }
 
   public addEstablishment(establishment: EstablishmentForm): Observable<EstablishmentForm> {
