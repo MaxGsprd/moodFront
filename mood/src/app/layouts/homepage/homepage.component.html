@@ -40,24 +40,24 @@
                 </mat-slider>
             </div>
             <div class="inputs">
-                <mat-form-field class="search-input" appearance="outline">
+                <!-- <mat-form-field class="search-input" appearance="outline">
                     <mat-label>Ville</mat-label>
                     <input name="searchByCityInput" id="searchByCityInput" (keyup)="searchByCity()" [(ngModel)]="searchByCityInput" matInput placeholder="Ville">
                     <mat-icon matSuffix>location_city</mat-icon>
-                </mat-form-field>
+                </mat-form-field> -->
                 <mat-form-field class="search-input" appearance="outline">
                     <mat-label>Nom de l'établissement</mat-label>
                     <input name="searchByNameInput" id="searchByNameInput" (keyup)="searchByName()" [(ngModel)]="searchByNameInput" matInput placeholder="Nom de l'établissement">
                     <mat-icon id="nameFieldIcon"  matSuffix>search</mat-icon>
                 </mat-form-field>
+                <a class="clear-filter" href="#">
+                    <div (click)="clearFilters()" class="cancel-filters">
+                        <mat-icon>close</mat-icon>
+                        <a>effacer le filtre</a>
+                    </div>
+                </a>
             </div>
         </div>
-        <a class="clear-filter" href="#">
-            <div (click)="clearFilters()" class="cancel-filters">
-                <mat-icon>close</mat-icon>
-                <a>effacer les filtres</a>
-            </div>
-        </a>
         <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3%">
             <mat-grid-tile class="tile" *ngFor="let establishment of establishments">
                 <a [routerLink]="['/establishment', establishment?.id]"><app-establishment-card [establishment]="establishment"></app-establishment-card></a>

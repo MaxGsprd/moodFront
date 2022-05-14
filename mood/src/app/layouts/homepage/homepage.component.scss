@@ -16,14 +16,25 @@
 mat-grid-tile {
     padding: 0;
     margin: 0;
+    animation: transitionIn 0.75s;
+    // min-height: 400px;
  }
 
 .tile {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    @keyframes transitionIn {
+        from {
+            opacity: 0;
+            transform: rotateX(-10deg);
+        }
+        to {
+            opacity: 1;
+            transform: rotateX(0);
+        }
+    }
  }
  
 .filtersBar {
-    /* background-color: aquamarine; */
     margin: 1.5em 0;
     display: flex;
     flex-direction: row;
@@ -142,11 +153,11 @@ mat-grid-tile {
  }
  
 .inputs { 
-    width: 470px;
+    width: 450px;
     display: flex;
     height: 50px;
     padding-top: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
     justify-items: center;

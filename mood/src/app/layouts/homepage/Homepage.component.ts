@@ -137,8 +137,30 @@ export class HomepageComponent extends BaseComponent implements OnInit {
    * Retreive distance slider fitter value.
    */
   getSliderValue() {
-    console.log(`slider value is : ${this.sliderValue}`);
-    console.log(this.user);
+    const latitude: string= this.user.latitude.toString();
+    const longitude: string = this.user.longitude.toString();
+    const distance = this.sliderValue.toString();
+    // console.log(`slider value is : ${this.sliderValue}`);
+
+    this.establishments = [];
+    setTimeout(() => {
+      this.establishmentService
+      .getEstablishmentWithInDistance(latitude, longitude, distance)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response:any) => {
+          response.map((responseItem:any) => {
+            this.establishmentService
+            .getEstablishment(responseItem[0])
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe((filteredEstablishmnent)=> {
+              this.establishments.push(filteredEstablishmnent);
+            });
+          })
+        },
+        error: error => console.log(`ERROR on getSliderValue's getEstablishmentWithInDistance method call : ${error}`)
+      });
+    }, 600);
   }
 
   /**
