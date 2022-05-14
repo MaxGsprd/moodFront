@@ -3,7 +3,7 @@
         <h1>Envie de sortir ?</h1>
     </section>
     <section class="mat-grid-container"> 
-        <app-carousel [establishments]="establishments" *ngIf="user.connected == true"></app-carousel>
+        <app-carousel *ngIf="user.connected == true"></app-carousel>
         <div class="filtersBar">
             <div class="moodChoiceButton">
                 <mat-button-toggle-group class="mood-btn-toggle-group" name="moodButtons">

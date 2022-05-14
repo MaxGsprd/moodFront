@@ -3,7 +3,7 @@ import { CommentDetails } from "./CommentDetails";
 
 export class EstablishmentDetails {
     id : Number | undefined;
-    name : String | undefined;
+    name : string | undefined;
     description : String | undefined;
     address : LocalisationDetails | undefined;
     images : Array<any> | undefined;
