@@ -25,7 +25,7 @@
     display: block;
     height: 100%;
     width: 100%;
-    padding: 50px;
+    padding: 0 50px;
 }
 
 .establishment-name {
@@ -136,6 +136,11 @@
 
 .otherEstablishment-tile {
    margin: 5px;
+}
+
+.sameMood {
+    font-size: 2em;
+    color: #EAB128;
 }
 
 

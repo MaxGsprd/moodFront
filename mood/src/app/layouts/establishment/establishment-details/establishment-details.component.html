@@ -1,23 +1,38 @@
 <div class="container-custom">
     <section class="right-section">
-        <h1 class="establishment-name">{{establishment.name}}</h1>
-        <section class="establishment-card">
-            <app-establishment-detail-card [establishment]="establishment"></app-establishment-detail-card>
+        <h2 class="establishment-name">{{establishment?.name}}</h2>
+        <section class="establishment-card" *ngFor="let establishment of similarEstablishments">
+            <app-establishment-detail-card *ngIf="establishment.id == establishmentId" [establishment]="establishment"></app-establishment-detail-card>
         </section>
         <div class="invitation">
             <div class="invite-friends">Inviter des amis</div>
         </div>
+        <section class="informations">
+            <h2 class="informations-section-title">Informations :</h2>
+            <div class="address">
+                <p><span>Adresse : </span>{{address?.street}} {{address?.postCode}} {{address?.city}}</p>
+            </div>
+            <div class="description">
+                <p>{{establishment?.description}}</p>
+            </div>
+        </section>
         <section class="comments">
-            <h2 class="comments-section-title">Commentaires :</h2>
-            <span>({{commentCount}} avis)</span>
-            <div class="comments-section" *ngFor="let comment of establishment.comments">
+            <div class="comments-section-header">
+                <h2 class="comments-section-title">Commentaires :</h2>
+                <span>({{commentCount}} avis)</span>
+            </div>
+            <div class="comments-section" *ngFor="let comment of comments">
                 <div class="comment-tile">
-                    <h2></h2>
-                    <h3>{{comment.title}}</h3>
-                    <p class="comment-text">{{comment.content}}</p>
+                    <h3 class="comment-title">{{comment.title}}</h3>
+                    <p class="comment-text">
+                        <span class="material-icons quote-first">format_quote</span>
+                        {{comment?.content}}
+                        <span class="material-icons quote-last">format_quote</span>
+                    </p>
                     <div class="comment-footer">
+                        <h3 class="userName">{{comment?.user?.firstname}} {{comment?.user?.name}}</h3>
                         <p class="comment-date">
-                            {{comment.createdDate}}
+                            le {{comment?.createdDate | date:'dd/MM/yy'}}     
                         </p>
                     </div>
                 </div>
@@ -25,8 +40,12 @@
         </section>
     </section>
     <section class="left-section">
+        <h3 class="sameMood">Dans le même Mood :</h3>
         <section class="other-establishments">
-            right section
+            <div class="tile" *ngFor="let establishment of similarEstablishments">
+                    <a [routerLink]="['/establishment', establishment.id]"><app-establishment-detail-card class="otherEstablishment-tile" [establishment]="establishment"></app-establishment-detail-card></a>
+                </div>
         </section>
+
     </section>
 </div>

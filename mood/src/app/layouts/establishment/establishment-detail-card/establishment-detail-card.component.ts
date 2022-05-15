@@ -9,32 +9,28 @@ import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 export class EstablishmentDetailCardComponent implements OnInit {
 
   @Input() establishment!: EstablishmentDetails;
-
+  
+  public innerWidth: any;
   establishmentNote: any;
   commentCount!: number;
   maxNote: number = 5;
   noteInnerWidth:number = 0;
   establishmentImgUrl: string = "url(https://media.timeout.com/images/105860412/1024/576/image.jpg)";
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
-
     this.getNotes();
-    this.getCommentsCount();
+
+    this.innerWidth = this.establishment?.note?.note;
   }
 
 
   getNotes() {
-    const percentage = (this.establishment.note.note / this.maxNote) * 100;
-    this.noteInnerWidth = percentage;
-    console.log(this.establishment.note.note);
+    const percentage = (this.establishment?.note?.note / this.maxNote) * 100;
+    this.noteInnerWidth = percentage;// entage;
   }
 
-  getCommentsCount() {
-    if (this.establishment.comments) {
-      this.commentCount = this.establishment.comments.length;
-    }
-  }
 
 }
