@@ -14,10 +14,7 @@ export class EstablishmentDetailsComponent extends BaseComponent implements OnIn
 
   public establishment!: EstablishmentDetails;
   private establishmentId!: number;
-  public commentCount!: number;
-  public establishmentDescription!: string;
-  public establishmentName!: string;
-  public comments!: any;
+  public commentCount!: any;
   
   constructor(private route: ActivatedRoute, private establishmentService: EstablishmentService) {
     super();
@@ -25,7 +22,6 @@ export class EstablishmentDetailsComponent extends BaseComponent implements OnIn
 
   ngOnInit(): void {
     this.getEstablishment();
-    console.log(this.establishment);
   }
 
   getEstablishment() {
@@ -35,27 +31,14 @@ export class EstablishmentDetailsComponent extends BaseComponent implements OnIn
       .getEstablishment(this.establishmentId)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: response => {
+        next: (response) => {
           this.establishment = response;
-          if (this.establishment.comments) {
-            this.commentCount = this.establishment.comments.length;
-          }
-          if (this.establishment.description) {
-            this.establishmentDescription = this.establishment.description.toString();
-          }
-          if (this.establishment.name) {
-            this.establishmentName = this.establishment.name.toString();
-          }
-          if (this.establishment.comments) {
-            this.comments = this.establishment.comments;
-          }
-
+          this.commentCount = this.establishment.comments?.length;
+        
         },
-        error: error => console.log(`ERROR on getEstablishment/${this.establishmentId} : ${error}`),
-        complete: () => console.log(this.establishment)
+        error: error => console.log(`ERROR on getEstablishment/${this.establishmentId} : ${error}`)
       });
   }
-  
 
 
 }
