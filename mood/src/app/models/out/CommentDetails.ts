@@ -1,6 +1,9 @@
+import { UserDetails } from "./UserDetails";
+
 export class CommentDetails {
-    title : String | undefined;
-    content : String | undefined;
+    title : string | undefined;
+    content : string | undefined;
     groupType : String | undefined;
-    createdDate : String | undefined;
+    createdDate : string | undefined;
+    user: UserDetails | undefined;
 }
