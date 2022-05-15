@@ -15,12 +15,14 @@ import { EstablishmentDetailsComponent } from './establishment-details/establish
 import { EstablishmentCommentsComponent } from './establishment-comments/establishment-comments.component';
 import { NewEstablishmentComponent } from './new-establishment/new-establishment.component';
 import { CommonModule } from '@angular/common'
+import { EstablishmentDetailCardComponent } from './establishment-detail-card/establishment-detail-card.component';
 
 @NgModule({
     declarations: [
       EstablishmentDetailsComponent,
       EstablishmentCommentsComponent,
-      NewEstablishmentComponent
+      NewEstablishmentComponent,
+      EstablishmentDetailCardComponent
     ],
     imports: [ 
         FormsModule,

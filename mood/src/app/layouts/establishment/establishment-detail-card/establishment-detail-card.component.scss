@@ -1,0 +1,113 @@
+.card-container-custom {
+    padding: 20px;
+}
+.card-content-custom {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-img-custom {
+    background : center / cover no-repeat;
+    height: 250px;
+    width: 100%;
+}
+
+.card-title-custom h2{
+    font-weight: bold;
+    color: #333;
+    font-size: 1.4em;
+    margin: 10px;
+}
+
+.card-footer-custom {
+    color: #333;
+    height: 50px;
+}
+
+.card-comment-custom {
+    padding-top: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.mood-note-container table{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    border:none;
+}
+
+.mood-note-container table td{
+    border: none;
+    padding: 5px;
+    height: 10px !important;
+}
+
+.beer-outer, .party-outer, .chill-outer {
+    position: relative;
+    display: inline-block;
+}
+
+.beer-inner, .party-inner, .chill-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.beer-outer::before {
+    content: url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg);
+    opacity: 0.2;
+}
+
+.beer-inner::before {
+    content: url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg) 
+             url(../../../../assets/images/beer-mood.svg);
+    opacity: 1;
+}
+
+.party-outer::before {
+    content: url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg);
+    opacity: 0.2;
+}
+
+.party-inner::before {
+    content: url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg) 
+             url(../../../../assets/images/party-mood.svg);
+    opacity: 1;
+}
+
+.chill-outer::before {
+    content: url(../../../../assets/images/chill-mood.svg) 
+             url(../../../../assets/images/chill-mood.svg) 
+             url(../../../../assets/images/chill-mood.svg) 
+             url(../../../../assets/images/chill-mood.svg) 
+             url(../../../../assets/images/chill-mood.svg);
+    opacity: 0.2;
+}
+
+.chill-inner::before {
+    content: url(../../../..//assets/images/chill-mood.svg) 
+             url(../../../..//assets/images/chill-mood.svg) 
+             url(../../../..//assets/images/chill-mood.svg) 
+             url(../../../..//assets/images/chill-mood.svg) 
+             url(../../../..//assets/images/chill-mood.svg);
+    opacity: 1;
+}

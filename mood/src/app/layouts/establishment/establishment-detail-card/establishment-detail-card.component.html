@@ -1,0 +1,29 @@
+<div class="card-container-custom"> 
+    <section class="card-content-custom">
+        <section class="card-img-custom" [ngStyle]="{'background-image': establishmentImgUrl}"></section>
+        <div class="card-title-custom">
+            <h2>{{ establishment.name }}</h2>
+          </div>
+        <div class="card-footer-custom">
+          <div class="mood-note-container">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <div [ngClass]="{'beer-outer': establishment.category.id == '1', 'party-outer': establishment.category.id == '2', 'chill-outer':establishment.category.id == '3'}">
+                        <div [ngStyle]="{'width':noteInnerWidth+'%'}" [ngClass]="{'beer-inner': establishment.category.id == '1', 'party-inner': establishment.category.id == '2', 'chill-inner': establishment.category.id == '3'}"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="card-comment-custom">
+                <p><small>
+                  ({{ commentCount}} avis)
+                </small></p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>
+    
