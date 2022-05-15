@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
  }
+
+ a {
+     text-decoration: none;
+ }
  
 .container-custom {
     margin: auto;
@@ -10,17 +14,18 @@
  }
 
 .right-section {
-    background-color: aquamarine;
+    // background-color: aquamarine;
     display: block;
     height: 100%;
     width: 100%;
 }
 
 .left-section {
-    background-color: thistle;
+    // background-color: thistle;
     display: block;
     height: 100%;
     width: 100%;
+    padding: 50px;
 }
 
 .establishment-name {
@@ -33,9 +38,105 @@
     background-color: #fff;
 }
 
+.invitation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.invite-friends {
+    font-size: 1.4em;
+    color:#fff;
+    background-color: #EAB128;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.address {
+    font-style: italic;
+}
+
+.address span {
+    font-style: normal;
+    color: #3C5099;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.description {
+    line-height: 150%;
+}
+
 .informations-section-title, .comments-section-title {
     font-size: 2em;
     color:#EAB128;
 }
+
+.comments-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: beige;
+    
+}
+
+.comments-section-title {
+    margin: 0;
+}
+ 
+.comment-tile {
+    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    // background-color: beige;
+    padding: 10px;
+    padding-bottom: 0;
+    border-bottom: solid rgba(99, 99, 99, 0.2) 1px;
+}
+
+.userName {
+    color: #3C5099;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-text {
+    margin: 0;
+}
+
+.comment-title {
+    padding: 0;
+    margin: 0;
+    color: #3C5099;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.quote-first {
+    color: #3C5099;
+    transform: scaleX(-1);
+    opacity: 0.8;
+}
+
+.quote-last {
+    color: #3C5099;
+    opacity: 0.8;
+}
+
+.comment-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.comment-date {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.otherEstablishment-tile {
+   margin: 5px;
+}
+
 
  
