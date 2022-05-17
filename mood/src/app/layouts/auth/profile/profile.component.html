@@ -14,16 +14,32 @@
                             <input manInput class="form-control" type="text" name="name" formControlName="name" required>
                         </div>
                     </div>
-
+                    <br>
+                    <!-- <div class="row">
+                        <div class="moodChoiceButton">
+                            <mat-button-toggle-group class="mood-btn-toggle-group" name="mood" formControlName="category" >
+                                <mat-button-toggle class="mood-btn" [value]="MOOD_BEER">
+                                    <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+                                </mat-button-toggle>
+                                <mat-button-toggle class="mood-btn" [value]="MOOD_PARTY">
+                                    <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
+                                </mat-button-toggle>
+                                <mat-button-toggle class="mood-btn" [value]="MOOD_CHILL">
+                                    <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div> -->
                     <div class="row">
+                        <div class="form-group col-6 px-8">
+                            <label for="surname">Email</label>
+                            <input manInput class="form-control" type="text" name="email" formControlName="email" required>
+                        </div>
                         <div class="form-group col-6 px-8">
                             <label for="name">N°tel</label>
                             <input manInput class="form-control" type="text" name="phone" formControlName="phone" required>
                         </div>
-                        <div class="form-group col-6 px-8">
-                            <label for="surname">Email</label>
-                            <input manInput class="form-control" type="text" name="email" formControleName="email" required>
-                        </div>
+                        
                     </div>
 
                     <div class="row">
@@ -46,6 +62,9 @@
                             <label for="surname">Ville</label>
                             <input manInput class="form-control" type="text" name="city" formControlName="city" required>
                         </div>
+                    </div>
+                    <div class="row">
+                        <button id="profileButton" mat-raised-button color="accent" (click)="updateProfile()">Enregistrer</button>
                     </div>
                 </form>
             </div>

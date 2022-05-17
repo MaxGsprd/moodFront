@@ -27,15 +27,17 @@ export class UserService {
     return this.http.get(this.url+'user/byemail/'+ email);
   }
 
-  updateUser(id : number, form : UserForm) : Observable<any> {
-    return this.http.post(
+  updateUser(id : number, data : any) : Observable<any> {
+    return this.http.put(
       this.url+'user/'+id+'/update', 
-      form, 
-      {
-        observe: 'response', 
-        headers: { 'Content-Type':  'application/json', 'Accept': 'text/plain', 'Authorization': 'Bearer '+this.token_storage.getToken()}, 
-        responseType: 'text'
-      }
+      data
+    );
+  }
+
+  updateMood(id : number, mood : number) : Observable<any> {
+    return this.http.put(
+      this.url+'user/'+id+'/updateMood/'+mood, 
+      {}
     );
   }
 
