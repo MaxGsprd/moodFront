@@ -24,7 +24,6 @@ export class HomepageComponent extends BaseComponent implements OnInit {
   public searchByNameInput: string = "";
 
   public user = { 
-    //connected : à changer quand le user sera authentifié
     connected: true,
     latitude : 0,
     longitude : 0,
