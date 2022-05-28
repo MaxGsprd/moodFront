@@ -72,6 +72,7 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
       this.imageService.showImageById(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe( (data: any) => {
+        console.log(data.url)
   
         this.establishmentImgUrl = data.url;
         
