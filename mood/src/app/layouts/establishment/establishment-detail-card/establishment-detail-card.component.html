@@ -1,6 +1,8 @@
 <div class="card-container-custom"> 
     <section class="card-content-custom">
-        <section class="card-img-custom" [ngStyle]="{'background-image': establishmentImgUrl}"></section>
+        <section class="card-img-custom" [ngStyle]="{'background-image': establishmentImgUrl}">
+          <img src="{{ establishmentImgUrl }}" alt="{{ establishmentImgAlt }}"/>
+        </section>
         <div class="card-title-custom">
             <h2>{{ establishment?.name }}</h2>
           </div>

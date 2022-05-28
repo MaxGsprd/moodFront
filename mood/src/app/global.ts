@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Input } from "@angular/core";
 import { UserDetails } from "./models/out/UserDetails";
 
 @Injectable()
 export class Globals {
-    user : UserDetails | undefined;
+    
+  @Input()  user: UserDetails | undefined;
 }

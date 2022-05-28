@@ -79,11 +79,20 @@ export class InscriptionComponent implements OnInit {
 
     }
   }
+    /**
+   * Filter establishments on Mood butttons click.
+   * @param  {number} moodCategoryId establishment category Id
+   */
+     onMoodClick(moodCategoryId: number) {
+      console.log(moodCategoryId);
+      this.mood = String(moodCategoryId)
+    }
 
   createUser() {
     if (this.inscriptionForm.valid) {
       this.forminscription = this.inscriptionForm.value;
       console.log(this.forminscription);
+
       
      this.authService.register(this.inscriptionForm.value)
         .subscribe(

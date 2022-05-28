@@ -10,13 +10,13 @@ export const HOST: AppConfig = {
   };
 
 export const HOSTADMIN: AppConfig = {
-    apiUrl: `${environment.apiUrl}/admin`,
+    apiUrl: `${environment.apiUrl}/admin/`,
   };
   
 export const HOSTEDITOR: AppConfig = {
-apiUrl: `${environment.apiUrl}/editor`,
+apiUrl: `${environment.apiUrl}/editor/`,
 };
 
 export const HOSTMODERATOR: AppConfig = {
-apiUrl: `${environment.apiUrl}/moderator`,
+apiUrl: `${environment.apiUrl}/moderator/`,
 };

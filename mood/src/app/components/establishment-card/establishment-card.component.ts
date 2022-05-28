@@ -1,12 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
+import { ImageService } from 'src/app/services/image/image.service';
+import { BaseComponent } from 'src/app/_shared/core/base.components';
 
 @Component({
   selector: 'app-establishment-card',
   templateUrl: './establishment-card.component.html',
   styleUrls: ['./establishment-card.component.scss']
 })
-export class EstablishmentCardComponent implements OnInit {
+export class EstablishmentCardComponent extends BaseComponent implements OnInit {
 
   @Input() establishment!: EstablishmentDetails;
 
@@ -19,10 +22,16 @@ export class EstablishmentCardComponent implements OnInit {
   noteInnerWidth:number = 0;
   moodId: string = "";
 
-  //temporary img
-  establishmentImgUrl: string = "url(https://media.timeout.com/images/105860412/1024/576/image.jpg)";
+  temporary_img: string = "url(https://media.timeout.com/images/105860412/1024/576/image.jpg)";
 
-  constructor() { }
+  establishmentImgUrl: any;
+  establishmentImgAlt: any;
+
+  constructor(
+    private imageService: ImageService
+  ) {
+    super();
+   }
 
   ngOnInit(): void {
     if (this.establishment.comments) {
@@ -30,7 +39,10 @@ export class EstablishmentCardComponent implements OnInit {
     }
     this.getShortDescription();
     this.getNotes();
+    this.extractImages();
+
   }
+
 
   getNotes() {
     if (this.establishment.category) {
@@ -49,6 +61,39 @@ export class EstablishmentCardComponent implements OnInit {
       } else {
         this.shortDescription = this.establishment.description.toString();
       }
+    }
+  }
+
+    /**
+   *  Get urlestablishment
+   * @param id esteblishment ID
+   */
+     showImage(id: number): any {
+      this.imageService.showImageById(id)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe( (data: any) => {
+  
+        this.establishmentImgUrl = data.url;
+        
+      });
+    }
+
+  /**
+   * Extract all images of the establishment
+   */
+  extractImages() {
+    if(this.establishment.images?.length != 0){
+      let images = this.establishment.images;
+
+      images?.forEach((img, index) => {
+        // take the first picture
+        if(index == 0)
+        this.showImage(img.id);
+        this.establishmentImgAlt = img.dataName;
+      })
+
+    } else {
+      this.establishmentImgUrl = this.temporary_img;
     }
   }
 }

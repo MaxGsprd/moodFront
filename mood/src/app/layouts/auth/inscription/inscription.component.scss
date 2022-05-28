@@ -1,3 +1,33 @@
 .file-input {
     display: none;
   }
+
+  .mood-btn-toggle-group {
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    margin: 2px 2px;
+    height: 60px;
+ }
+ 
+.mood-btn {
+    border-radius: 50%;
+    background-color: #FFF;
+    opacity: 0.4;
+    border: none !important;
+    box-shadow: rgba(17, 16, 16, 0.2) 0px 2px 8px 0px;
+ }
+ 
+.mood-btn:active {
+    transform: translate(1px, 1px);
+ }
+ 
+.mood-btn img {
+    width: 10%;
+ }
+ 
+.mat-button-toggle-checked  {
+    background-color: #fff;
+    opacity: 1;
+ }

@@ -23,15 +23,17 @@
                 <div class="row">
                     <div class="moodChoiceButton">
                         <mat-button-toggle-group class="mood-btn-toggle-group" name="mood" formControlName="mood" >
-                            <mat-button-toggle class="mood-btn" [value]="MOOD_BEER">
-                                <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
-                            </mat-button-toggle>
-                            <mat-button-toggle class="mood-btn" [value]="MOOD_PARTY">
-                                <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
-                            </mat-button-toggle>
-                            <mat-button-toggle class="mood-btn" [value]="MOOD_CHILL">
-                                <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
-                            </mat-button-toggle>
+                            <mat-button-toggle-group class="mood-btn-toggle-group" name="moodButtons">
+                                <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_BEER)" [value]="MOOD_BEER">
+                                    <img src="../../../assets/images/beer-mood.svg" alt="chill mood logo">
+                                </mat-button-toggle>
+                                <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_PARTY)" [value]="MOOD_PARTY">
+                                    <img src="../../../assets/images/party-mood.svg" alt="party mood logo">
+                                </mat-button-toggle>
+                                <mat-button-toggle class="mood-btn" (click)="onMoodClick(MOOD_CHILL)" [value]="MOOD_CHILL">
+                                    <img src="../../../assets/images/chill-mood.svg" alt="chill mood logo">
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
                         </mat-button-toggle-group>
                     </div>
                 </div>
