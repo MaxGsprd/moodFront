@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --configuration=production -aot && cp '.htaccess ./dist/intranet'",
+    "build": "ng build --configuration=production --aot && cp '.htaccess ./dist/intranet'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build"
