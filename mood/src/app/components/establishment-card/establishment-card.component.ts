@@ -73,10 +73,10 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe( (data: any) => {
         console.log(data.url);
-        let fileURL = URL.createObjectURL(data.url);
+        let fileURL = URL.createObjectURL(data);
         console.log(fileURL);
   
-        this.establishmentImgUrl = data.url;
+        this.establishmentImgUrl = fileURL;
 
         
       });
