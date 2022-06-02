@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { takeUntil } from 'rxjs';
 import { EstablishmentDetails } from 'src/app/models/out/EstablishmentDetails';
 import { ImageService } from 'src/app/services/image/image.service';
@@ -28,7 +29,8 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
   establishmentImgAlt: any;
 
   constructor(
-    private imageService: ImageService
+    private imageService: ImageService,
+    private sanitizer: DomSanitizer
   ) {
     super();
    }
@@ -72,11 +74,12 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
       this.imageService.showImageById(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe( (data: any) => {
+        console.log(data);
         console.log(data.url);
         let fileURL = URL.createObjectURL(data);
         console.log(fileURL);
   
-        this.establishmentImgUrl = fileURL;
+        this.establishmentImgUrl = this.sanitizer.bypassSecurityTrustUrl(fileURL);
 
         
       });
