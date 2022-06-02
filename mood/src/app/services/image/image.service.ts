@@ -16,7 +16,7 @@ export class ImageService {
 
 
   public showImageById(id: number): any {
-    return this.http.get(`${this.url}image/show/${id}`, {observe: 'response', headers: {'Accept':  'image/jpeg'}, responseType: "blob"});
+    return this.http.get(`${this.url}image/show/${id}`, {observe: 'response', headers: {'Accept':  'image/jpg'}, responseType: "blob"});
   }
 
   public getUserImage(email: string): any {
