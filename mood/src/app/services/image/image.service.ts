@@ -14,17 +14,9 @@ export class ImageService {
   ) { }
 
 
-  httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'responseType'  : 'arraybuffer' as 'application/json'
-      }
-    )
-  };
-
 
   public showImageById(id: number): any {
-    return this.http.get(`${this.url}image/show/${id}`, {observe: 'response', headers: {'Accept':  'image/png'}, responseType: "blob"});
+    return this.http.get(`${this.url}image/show/${id}`, {observe: 'response', headers: {'Accept':  'image/jpeg'}, responseType: "blob"});
   }
 
   public getUserImage(email: string): any {
