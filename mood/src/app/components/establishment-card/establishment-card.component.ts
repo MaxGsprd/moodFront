@@ -74,12 +74,13 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
       this.imageService.showImageById(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe( (data: any) => {
-        console.log(data);
+        /*console.log(data);
         console.log(data.url);
         let fileURL = URL.createObjectURL(data);
-        console.log(fileURL);
+        console.log(fileURL);*/
   
-        this.establishmentImgUrl = this.sanitizer.bypassSecurityTrustUrl(fileURL);
+        this.establishmentImgUrl = data.url;
+        //this.establishmentImgUrl = this.sanitizer.bypassSecurityTrustUrl(fileURL);
 
         
       });
@@ -91,7 +92,7 @@ export class EstablishmentCardComponent extends BaseComponent implements OnInit 
   extractImages() {
     if(this.establishment.images?.length != 0){
       let images = this.establishment.images;
-      console.log(images);
+      //console.log(images);
 
       images?.forEach((img, index) => {
         // take the first picture
